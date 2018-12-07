@@ -1,0 +1,65 @@
+<!-- Indices written at Wed, 2 Nov 2011 15:04:00 UTC -->
+
+<datastore-indexes autoGenerate="true">
+
+	<datastore-index kind="Mensaje" ancestor="false" source="manual">
+		<property name="__key__" direction="desc" />
+	</datastore-index>
+
+    <datastore-index kind="Mensaje" ancestor="false" source="manual">
+        <property name="menIdForo" direction="asc"/>
+        <property name="menFecha" direction="desc"/>
+    </datastore-index>
+	
+    <datastore-index kind="Mensaje" ancestor="false" source="manual">
+   		<property name="menActivado" direction="asc"/>
+        <property name="menIdForo" direction="asc"/>
+        <property name="menFecha" direction="desc"/>
+    </datastore-index>
+
+	<datastore-index kind="Articulo" ancestor="false" source="manual">
+		<property name="__key__" direction="desc" />
+	</datastore-index>
+
+    <datastore-index kind="Articulo" ancestor="false" source="manual">
+        <property name="artIdForo" direction="asc"/>
+        <property name="__key__" direction="desc"/>
+    </datastore-index>
+	
+  	<datastore-index kind="Articulo" ancestor="false" source="manual">
+        <property name="artActivado" direction="asc"/>
+        <property name="artIdForo" direction="asc"/>
+        <property name="__key__" direction="desc"/>
+    </datastore-index>
+
+	<datastore-index kind="Evento" ancestor="false" source="manual">
+		<property name="__key__" direction="desc" />
+	</datastore-index>
+
+    <datastore-index kind="Evento" ancestor="false" source="manual">
+        <property name="eveIdForo" direction="asc"/>
+        <property name="eveFechaDesde" direction="desc"/>
+    </datastore-index>
+	
+  	<datastore-index kind="Evento" ancestor="false" source="manual">
+        <property name="eveActivado" direction="asc"/>
+        <property name="eveIdForo" direction="asc"/>
+        <property name="eveFechaDesde" direction="desc"/>
+    </datastore-index>
+
+	<datastore-index kind="Web" ancestor="false" source="manual">
+		<property name="__key__" direction="desc" />
+	</datastore-index>
+
+	<datastore-index kind="Web" ancestor="false" source="manual">
+		<property name="webParametro" direction="asc" />
+		<property name="__key__" direction="desc" />
+	</datastore-index>
+	
+	<datastore-index kind="Web" ancestor="false" source="manual">
+		<property name="webActivado" direction="asc" />
+		<property name="webParametro" direction="asc" />
+		<property name="__key__" direction="desc" />
+	</datastore-index>
+	
+</datastore-indexes>

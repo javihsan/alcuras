@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+		default-lazy-init="false">
+
+	<context:component-scan base-package="com.alcuras.web.controllers,com.alcuras.web.persist.manager"/>
+
+	<!-- responsible for converting from the HTTP request message to an object and converting from an object to the HTTP response body. -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"> 
+		<property name="interceptors">
+        	<ref bean="localeChangeInterceptor" />
+    	</property> 
+	</bean>
+	
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+    	<property name="paramName" value="lang" />
+	</bean>
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+		
+	<bean id="messageSource" class="com.alcuras.web.negocio.utils.ExtendMessageSource">
+    	<property name="basenames" value="classpath:com/alcuras/web/client/messages" />
+	</bean>
+
+	<bean id="shopController" class="com.alcuras.web.controllers.ShopController">
+		<property name="viewMap">
+			<map>
+				<entry key="shop-home">
+					 <value>ShopHome</value>
+				</entry>
+				<entry key="shop-product">
+					 <value>ShopProduct</value>
+				</entry>
+				<entry key="shop-info">
+					 <value>ShopInfo</value>
+				</entry>
+				<entry key="shop-consulta">
+					 <value>ShopConsulta</value>
+				</entry>
+				<entry key="shop-second">
+					 <value>ShopSecond</value>
+				</entry>
+				<entry key="shop-carrito">
+					 <value>ShopCarrito</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="homeController" class="com.alcuras.web.controllers.HomeController">
+		<property name="view" value="Inicio" />
+	</bean>
+	
+	<bean id="mensajeController" class="com.alcuras.web.controllers.MensajeController">
+		<property name="viewMap">
+			<map>
+				<entry key="salud-comentarios">
+					 <value>SaludComen</value>
+				</entry>
+				<entry key="comun-comentarios">
+					 <value>ComunComen</value>
+				</entry>
+				<entry key="arte-comentarios">
+					 <value>ArteComen</value>
+				</entry>
+			</map>
+		</property>
+		<property name="typeMap">
+			<map>
+				<entry key="salud-comentarios">
+					 <value>1</value>
+				</entry>
+				<entry key="comun-comentarios">
+					 <value>2</value>
+				</entry>
+				<entry key="arte-comentarios">
+					 <value>3</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="articuloController" class="com.alcuras.web.controllers.ArticuloController">
+		<property name="viewMap">
+			<map>
+				<entry key="salud-articulos">
+					 <value>SaludArticulos</value>
+				</entry>
+				<entry key="comun-articulos">
+					 <value>ComunArticulos</value>
+				</entry>
+				<entry key="arte-articulos">
+					 <value>ArteArticulos</value>
+				</entry>
+			</map>
+		</property>
+		<property name="typeMap">
+			<map>
+				<entry key="salud-articulos">
+					 <value>1</value>
+				</entry>
+				<entry key="comun-articulos">
+					 <value>2</value>
+				</entry>
+				<entry key="arte-articulos">
+					 <value>3</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="eventoController" class="com.alcuras.web.controllers.EventoController">
+		<property name="viewMap">
+			<map>
+				<entry key="arte-eventos">
+					 <value>ArteEventos</value>
+				</entry> 
+			</map>
+		</property>
+		<property name="typeMap">
+			<map>
+				<entry key="arte-eventos">
+					 <value>3</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="sendController" class="com.alcuras.web.controllers.SendController">
+		<property name="viewMap">
+			<map>
+				<entry key="salud-contacto">
+					 <value>SaludContactoResponse</value>
+				</entry>
+				<entry key="comun-interesa">
+					 <value>ComunInteresaResponse</value>
+				</entry>  
+				<entry key="arte-contacto">
+					 <value>ArteContactoResponse</value>
+				</entry>
+			</map>
+		</property>
+		<property name="sender" value="no-reply@alcuras.com" />
+		<property name="recipient" value="info@alcuras.com" />
+		<property name="subject" value="Alcuras Comunicaciones interesado: " />
+	</bean>
+	
+	<bean id="webController" class="com.alcuras.web.controllers.WebController">
+		<property name="viewMap">
+			<map>
+				<entry key="vcard-webadmin">
+					 <value>WebVCard</value>
+				</entry>
+				<entry key="download-vcard">
+					 <value>salud-contacto</value>
+				</entry>
+			</map>
+		</property>
+		<property name="paramMap">
+			<map>
+				<entry key="vcard-webadmin">
+					 <value>vcard</value>
+				</entry>
+				<entry key="download-vcard">
+					 <value>vcard</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="redirectController" class="com.alcuras.web.controllers.RedirectController">
+		<property name="viewMap">
+			<map>
+				<entry key="salud-home">
+					<value>SaludHome</value> 
+				</entry>
+				<entry key="salud-servicios">
+					<value>SaludServicios</value> 
+				</entry>
+				<entry key="salud-servicios-homeop">
+					<value>SaludServiciosHomeop</value> 
+				</entry>
+				<entry key="salud-servicios-interna">
+					<value>SaludServiciosInterna</value> 
+				</entry>
+				<entry key="salud-servicios-music">
+					<value>SaludServiciosMusic</value> 
+				</entry>
+				<entry key="salud-servicios-preven">
+					<value>SaludServiciosPreven</value> 
+				</entry>
+				<entry key="salud-servicios-psicos">
+					<value>SaludServiciosPsicos</value> 
+				</entry>
+				<entry key="salud-servicios-anti">
+					<value>SaludServiciosAnti</value> 
+				</entry>
+				<entry key="salud-servicios-orto">
+					<value>SaludServiciosOrto</value> 
+				</entry>
+				<entry key="salud-servicios-infusion">
+					<value>SaludServiciosInfusion</value> 
+				</entry>
+				<entry key="salud-servicios-ferti">
+					<value>SaludServiciosFerti</value> 
+				</entry>
+				<entry key="salud-servicios-antro">
+					<value>SaludServiciosAntro</value> 
+				</entry>
+				<entry key="salud-servicios-voz">
+					<value>SaludServiciosVoz</value> 
+				</entry>
+				<entry key="salud-servicios-pediatria">
+					<value>SaludServiciosPediatria</value> 
+				</entry>
+				<entry key="salud-info">
+					<value>SaludInfo</value> 
+				</entry>
+				<entry key="salud-info-guia">
+					<value>SaludInfoGuia</value> 
+				</entry>
+				<entry key="salud-info-citas">
+					<value>SaludInfoCitas</value> 
+				</entry>
+				<entry key="salud-info-citassegui">
+					<value>SaludInfoCitasSegui</value> 
+				</entry>
+				<entry key="salud-info-internacion">
+					<value>SaludInfoInternacion</value> 
+				</entry>
+				<entry key="salud-info-segunda">
+					<value>SaludInfoSegunda</value> 
+				</entry>
+				<entry key="salud-info-diag">
+					<value>SaludInfoDiag</value> 
+				</entry>
+				<entry key="salud-info-cheque">
+					<value>SaludInfoCheque</value> 
+				</entry>
+				<entry key="salud-info-reme">
+					<value>SaludInfoReme</value> 
+				</entry>
+				<entry key="salud-info-pagos">
+					<value>SaludInfoPagos</value> 
+				</entry>
+				<entry key="salud-info-seguros">
+					<value>SaludInfoSeguros</value> 
+				</entry>
+				<entry key="salud-info-cancela">
+					<value>SaludInfoCancela</value> 
+				</entry>
+				<entry key="salud-instala">
+					<value>SaludInstala</value> 
+				</entry>
+				<entry key="salud-contacto">
+					<value>SaludContacto</value> 
+				</entry>
+				<entry key="salud-situacion">
+					<value>SaludSituacion</value> 
+				</entry>
+				<entry key="salud-talleres">
+					<value>SaludTalleres</value> 
+				</entry>
+				<entry key="comun-home">
+					<value>ComunHome</value> 
+				</entry>
+				<entry key="comun-interesa">
+					<value>ComunInteresa</value> 
+				</entry>
+				<entry key="comun-faqs">
+					<value>ComunFaqs</value> 
+				</entry>
+				<entry key="comun-links">
+					<value>ComunLinks</value> 
+				</entry>
+				<entry key="comun-galeria">
+					<value>ComunGaleria</value> 
+				</entry>
+				<entry key="arte-home">
+					<value>ArteHome</value> 
+				</entry>
+				<entry key="arte-faqs">
+					<value>ArteFaqs</value> 
+				</entry>
+				<entry key="arte-team">
+					<value>ArteTeam</value> 
+				</entry>
+				<entry key="arte-marta-knorr">
+					<value>ArteMarta</value> 
+				</entry>
+				<entry key="arte-valeriano-gamghebeli">
+					<value>ArteValeriano</value> 
+				</entry>
+				<entry key="arte-stefan-dehmelt">
+					<value>ArteStefan</value> 
+				</entry>
+				<entry key="arte-aurelio-viribay">
+					<value>ArteAurelio</value> 
+				</entry>
+				<entry key="arte-karin-gutsche">
+					<value>ArteKarin</value> 
+				</entry>
+				<entry key="arte-links">
+					<value>ArteLinks</value> 
+				</entry>
+				<entry key="arte-contacto">
+					<value>ArteContacto</value> 
+				</entry>
+				<entry key="pie-aviso">
+					<value>PieAviso</value> 
+				</entry>
+				<entry key="pie-privad">
+					<value>PiePrivad</value> 
+				</entry>
+				<entry key="team-home">
+					<value>TeamHome</value> 
+				</entry>
+				<entry key="team-doctor">
+					<value>TeamDoctor</value> 
+				</entry>
+				<entry key="team-alberto">
+					<value>TeamAlberto</value> 
+				</entry>
+				<entry key="team-marcel">
+					<value>TeamMarcel</value> 
+				</entry>
+				<entry key="team-ana">
+					<value>TeamAna</value> 
+				</entry>
+				<entry key="team-carmen">
+					<value>TeamCarmen</value> 
+				</entry>
+				<entry key="team-eloy">
+					<value>TeamEloy</value> 
+				</entry>
+				<entry key="team-marta">
+					<value>TeamMarta</value> 
+				</entry>
+				<entry key="team-javier">
+					<value>TeamJavier</value> 
+				</entry>
+				<entry key="team-ricardo">
+					<value>TeamRicardo</value> 
+				</entry>
+				<entry key="team-mayka">
+					<value>TeamMayka</value> 
+				</entry>
+			</map>
+		</property>
+	</bean> 
+	
+	<!-- For ModelAndView -->
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="viewResolvers">
+		    <list>
+		    	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+		        <bean class="com.alcuras.web.controllers.ReplaceInternalResourceViewResolver">
+		            <property name="prefixWEB" value="/web/jsp/" />
+                    <property name="sufixWEB" value=".jsp"/>
+                    <property name="identSHOP" value="Shop" />
+                	<property name="prefixSHOP" value="/web/shop/jsp/" />
+                    <property name="sufixSHOP" value=".jsp"/>
+                 </bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="beanEMF" class="com.alcuras.web.persist.manager.EMF" />
+		
+	
+</beans>

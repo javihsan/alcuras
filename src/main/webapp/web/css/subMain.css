@@ -1,0 +1,513 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+.titContainer{
+	padding:15px;
+	color:#00903b;
+	font-size:20px;
+}
+	.titContainer img{
+		margin-left:441px;	
+	}
+		
+.titContainerHome{
+	padding:15px;
+}
+
+.folowHome{
+	color:#000000; 
+	margin-top:0px;	
+	font-weight:bold; 
+	font-size:11px;
+	width:180px; 
+	float:right;
+}
+
+.teamHome{
+	width:70px; 
+	color:#000000; 
+	margin-top:40px;	
+	font-weight:bold; 
+	font-size:11px;
+	float:right;
+	margin-right:110px;
+}
+
+.linksHome{
+	width:175px;
+	aaheight: 30px; 
+	color:#006eb3;
+	aamargin-top:40px;	
+	font-size:11px;
+	float:right;
+	margin-right:10px;
+	margin-left: 10px;
+	aabackground-color: rgba(237, 247, 249, 0.63);
+	background-color: rgba(156, 207, 245, 0.6);
+	text-align: center;
+	line-height: 25px;
+}
+
+.menuInt{
+	float:left;
+	width:226px;
+}
+	.menuInt ul{
+		 list-style:none;
+		 margin-top:20px;	
+	}
+		.menuInt ul li{
+			height:30px;
+		}
+			.menuInt ul li img{
+				 vertical-align:middle;
+			}
+			.menuInt ul li a{
+				font-size:11px;
+				color:#006eb3;
+			}
+			body#art .menuInt ul li a:hover,
+			body#art .menuInt ul li.selected>a{
+				color:red;
+			}
+			body#health .menuInt ul li a:hover,
+			body#health .menuInt ul li.selected>a{
+				color:#fec901;
+			}
+			body#com .menuInt ul li a:hover,
+			body#com .menuInt ul li.selected>a{
+				color:green;
+			}
+			body#shop .menuInt ul li a:hover,
+			body#shop .menuInt ul li.selected>a{
+				color:#f0c901;
+			}
+				.menuInt ul li a span{
+					margin-right:4px;
+					width:30px;
+					text-align:center;
+					vertical-align:middle;	
+				}
+
+	ul.normalList{
+		list-style:disc !important;	
+		margin-left:15px;
+		clear:both;
+	}
+		ul.normalList li{
+			margin-bottom:3px;	
+		}
+.textHome.art{
+	float:right !important;
+	width:700px !important;
+	margin:0;
+	padding:34px 0 0 27px !important;	
+	text-align:justify;
+}
+
+.textHome.health{
+	float:right !important;
+	width:640px !important;
+	margin:0;
+	padding:0 !important;	
+	text-align:justify;
+}
+
+.textHome.health.inst{
+	float:right !important;
+	width:740px !important;
+	margin:0;
+	padding:0 !important;	
+	text-align:justify;
+}
+
+.textHome.comun{
+	float:right !important;
+	width:740px !important;
+	margin:0;
+	padding:0 !important;	
+	text-align:justify;
+}
+
+.textHome.comun.espaciado{
+	padding:0 0 10px 0 !important	
+}
+
+.textHome.shop{
+	float:right !important;
+	width:740px !important;
+	margin:0;
+	padding:0 !important;	
+	text-align:justify;
+}
+	.imgCaption{
+		width:250px;
+		float:left;		
+		margin-right: 0 !important;
+	}
+	.imgCaption.especialWidth{
+		width:300px;
+	}
+	.imgCaption.especialWidthArt{
+		width:275px;
+	}
+		.imgCaption p{
+			font-size:10px;
+			font-style:italic;
+			margin-top:5px;
+			margin-left:0;
+			line-height:12px !important;
+		}
+		.sectionMainPict{
+			clear:both;
+		}
+.subMenuDiv{
+	border: 3px solid #e3eff7;
+	background:white;	
+	position:absolute;
+	display:none;
+}
+.subMenuDiv ul{
+	list-style:url(/web/img/menuBolo.gif) !important;
+}
+	.subMenuDiv ul li{
+		margin-left:0;
+		height:25px;
+		list-style-position:inside;
+	}
+.subMenuSign{
+	position:absolute;	
+	display:none;
+}
+.contactStyle{
+	line-height:20px;
+	margin:20px 20px 20px 200px;	
+}
+	.contactStyle a{
+	color:#black;
+	text-decoration:underline;
+	}
+#contactForm{
+	width:420px;
+	margin:20px 0 20px 100px;	
+}
+	#contactForm div{
+		min-height:20px;
+	}
+		#contactForm .titForm{
+			text-align:center;
+			font-size:15px;
+			margin-bottom:15px;	
+		}
+		#contactForm label{
+			float:left;
+			width:150px;
+			text-align:right;
+			padding:3px 3px 0 0;	
+		}
+		#contactForm input,
+		#contactForm textarea{
+			border:1px solid #cccccc;
+			width:250px;
+			*width:248px;
+		}
+		#contactForm textarea{
+			height:75px;
+			width:248px;	
+			margin-top:2px;
+		}
+		#contactForm div.submitButton{
+			text-align:right;
+			padding-top:5px;
+			margin-right:15px;	
+		}
+			#contactForm div.submitButton input{
+				width:auto;	
+			}
+.message{
+	margin-top:20px;
+	color:#006eb3;
+	line-height:15px;	
+}
+	.message a img{
+		vertical-align: middle;
+	}
+	.lefty{
+		float:left;
+		width:150px !important;
+		margin-right:10px;
+		margin-bottom:10px;
+	}
+		.lefty a img{
+			margin-bottom:5px;
+		}
+		.lefty.more{
+			margin-left:85px !important;
+		}
+		.lefty.c{
+			margin-left:175px !important;
+		}
+		.lefty.l{
+			margin-left:15px !important;
+		}
+		.lefty.d{
+			margin-left:175px !important;
+		}
+	.break{
+	clear:left;
+	}
+	#messageForm div.submitButton{
+		text-align:left;
+		padding-top:25px;	
+	}
+		#messageForm div.submitButton input{
+			border:none;
+			width:auto;	
+		}
+.articlesList{
+	list-style-image:url(/web/img/boloArticles.png);	
+}
+	.articlesList li a{
+		position:relative;
+		top:-12px;
+	}
+.muyLogo{
+float:right;
+margin-top:50px;	
+}
+
+.rastro{
+	margin-left:50px;
+	padding:15px;
+	font-size:18px;
+	line-height:40px;	
+}
+	.rastro.health{
+		color:#fec901;
+	}
+	
+	.rastro.health.guia {
+		margin-left:0 !important;
+		padding-left:0 !important;
+	}
+	
+	.rastro.guia2{
+		margin-left:0 !important;
+		padding-left:0 !important;
+		color:#5DB2F4;
+	}
+	
+	.rastro.comun{
+		color:green;
+	}
+.clearBoth{
+	clear:both;
+}
+
+.floatLeft{
+	float:left;
+}
+
+.destacado{
+	background:#E1E9EE;
+	padding:8px;
+	padding-left:0 !important;	
+}
+	.destacado.especialWidth{
+		width:373px;
+		margin-bottom:5px;
+		padding-bottom:0 !important;
+	}
+	
+	.destacado.especialWidthCom{
+		width:630px;
+		margin-bottom:5px;
+		padding-bottom:0 !important;
+	}
+	.destacado p:last-child{
+		margin-bottom:0 !important;
+	}
+
+.destacadoGuia{
+	padding:0px;
+	padding-left:0 !important;	
+	margin-top:0px;
+	margin-bottom:2px !important;
+}
+	.destacadoGuia font{
+		background-color:#fec901;
+	}
+
+.destacadoComHome{
+	padding:0px;
+	padding-left:0 !important;	
+	margin-top:0px;
+	margin-bottom:10px !important;
+	font-size:1px !important;
+}
+	.destacadoComHome font{
+		background-color:#C6F59D;
+		font-size:14px !important;
+	}
+
+.alineado{
+	padding:8px;
+	padding-left:0 !important;	
+}
+	.alineado.especialWidth{
+		width:369px;
+		margin-bottom:5px;
+		padding-bottom:0 !important;
+	}
+	.alineado.especialWidthCom{
+		width:432px;
+		margin-bottom:5px;
+		padding-bottom:0 !important;
+	}
+	.alineado.especialWidthArt{
+		width:442px;
+		margin-bottom:5px;
+		padding-bottom:0 !important;
+	}
+	.alineado.especialWidthArt.coment{
+		height:275px;
+	}
+
+.required{
+	font-size:11px;
+	font-style:italic
+}
+
+.divFondoSalud{
+	background:url(/web/img/fondoSalud.jpg);
+	background-size: 735px 525px;
+	width: 735px;
+	height:525px;
+	position:absolute;
+}
+.divArbol{
+	width: 735px;
+	height:525px;
+}
+	.divArbol > a{
+		text-align:center;
+		position:relative;
+		display:inline-block;
+		padding:5px;
+		font-family:Verdana, Geneva, sans-serif;
+		color: #006eb3;
+    	font-size: 11px;
+	}
+	/*.divArbol > a > img{
+		margin-bottom:5px;
+	}*/
+	
+	.interna.es{
+		margin:-23px 250px 0 291px;
+	}
+		.interna.en{
+			margin:-23px 250px 0 291px;
+		}
+			.interna.de{
+				margin:-20px 250px 0 295px;
+			}
+	
+	.pediatria.es{
+		margin:-4px 250px 0 290px;
+	}
+		.pediatria.en{
+			margin:-6px 250px 0 286px;
+		}
+			.pediatria.de{
+				margin:-6px 250px 0 261px;
+			}
+			
+	.psicosomatica.es {
+		margin:2px 160px 0 450px;
+	}
+		.psicosomatica.en {
+			margin:2px 160px 0 450px;
+		}
+			.psicosomatica.de {
+				margin:9px 160px 0 450px;
+			}
+
+	.homeo.es{
+		margin:17px 170px 0 417px;	
+	}
+		.homeo.en{
+			margin:17px 170px 0 417px;	
+		}
+			.homeo.de{
+				margin:17px 170px 0 413px;	
+			}
+	
+	.ferti.es{
+		margin:-10px 30px 0 291px;		
+	}
+		.ferti.en{
+			margin:-10px 30px 0 296px;		
+		}
+			.ferti.de{
+				margin:-10px 30px 0 281px;		
+			}
+			
+	
+	.talleres{
+		margin:29px 30px 0 402px;		
+	}
+			
+	.orto.es{
+		margin:-9px 350px 0 180px;
+		/*font-size:8px !important;*/	
+	}
+		.orto.en{
+			margin:-9px 350px 0 180px;
+			/*font-size:8px !important;*/	
+		}
+			.orto.de{
+				margin:2px 350px 0 161px;
+				/*font-size:8px !important;*/	
+			}
+		
+	
+	.antro.es{
+		margin:-7px 30px 0 132px;
+	}
+		.antro.en{
+			margin:-5px 30px 0 125px;
+		}
+			.antro.de{
+				margin:-5px 30px 0 118px;
+			}
+			
+	.voz.es{
+		margin:73px 300px 0 288px;	
+	}
+		.voz.en{
+			margin:73px 300px 0 288px;	
+		}
+			.voz.de{
+				margin:73px 300px 0 283px;	
+			}
+			
+	.music.es{
+		margin:50px 300px 0 245px;		
+	}
+		.music.en{
+			margin:50px 300px 0 252px;		
+		}
+			.music.de{
+				margin:50px 300px 0 242px;		
+			}
+	
+	.preven.es{
+		margin:-7px 350px 0 172px;		
+	}
+		.preven.en{
+			margin:-7px 350px 0 180px;		
+		}
+			.preven.de{
+				margin:-7px 350px 0 180px;		
+			}
