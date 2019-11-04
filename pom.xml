@@ -7,7 +7,7 @@
 	<artifactId>alcurasweb</artifactId>
 
 	<!-- VERSION -->
-	<version>r8-0-3</version>
+	<version>r8-0-4</version>
 
 	<packaging>war</packaging>
 	<name>${project.artifactId}</name>
@@ -127,7 +127,7 @@
 		</profile>
 	</profiles>
 	<dependencies>
-	
+			
 		<!-- AppEngine -->
 		<dependency>
 			<groupId>com.google.appengine</groupId>
@@ -378,7 +378,7 @@
 			<plugin>
                 <groupId>org.datanucleus</groupId>
                 <artifactId>maven-datanucleus-plugin</artifactId>
-                <version>${datanucleus.jpa.version}</version>
+                <version>3.2.0-m1</version>
 
                 <configuration>
                     <api>JPA</api>
@@ -393,6 +393,11 @@
                         <artifactId>datanucleus-core</artifactId>
                         <version>${datanucleus.jpa.version}</version>
                     </dependency>
+                    <dependency>
+		    			<groupId>javax.jdo</groupId>
+		    			<artifactId>jdo-api</artifactId>
+		    			<version>3.1</version>
+					</dependency>
                 </dependencies>
 
                 <executions>
@@ -403,7 +408,7 @@
                         </goals>
                     </execution>
                 </executions>
-     </plugin>
+    		 </plugin>
 		</plugins>
 	</build>
 </project>
