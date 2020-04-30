@@ -2,14 +2,13 @@
 	<%@include file="CabeceraHome.jsp"%>
 		
 			<div style="margin-top:57px !important;" class="menuHome">
-	        	<img style="margin-bottom:10px; margin-left:100px;" src="/web/img/home/Hamaca-Palmera.jpg" widths="366px" width="486px" height="200px" heights="288px" alt="" />
+	        	<img style="margin-bottom:10px; margin-left:100px;" src="/web/img/home/Venecia-2015-Knobloch.jpg" widths="366px" width="486px" height="200px" heights="288px" alt="" />
 	        	<!--<iframe style="margin-bottom:10px; margin-left:100px;" src="https://player.vimeo.com/video/157274249" width="486" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
 	        </div>
 	        <div style="margin-top:37px !important;" class="textHome">
-	        	<p style="margin-bottoms:28px; font-size: 17px; color:#006eb3; line-height:15px; margin-left:100px;"><a target="_blank" href="/web/img/home/AlcurasDisfrutaVerano.pdf"><spring:message code="home.textPlane"/></a><br><br><br></p>
-	        	<!--<p style="margin-bottoms:58px; font-size: 14px; margin-left:100px;" class_ss="message"><spring:message code="home.cabPlane"/></p>-->
-
+	        	<!--<p style="margin-bottoms:28px; font-size: 17px; color:#006eb3; line-height:15px; margin-left:100px;"><a target="_blank" href="/web/img/home/AlcurasDisfrutaVerano.pdf"><spring:message code="home.textPlane"/></a><br><br><br></p> -->
 	        	<!--<p class="textTitle" style="margin-bottom:6px; font-size: 12px;"><spring:message code="home.cabPlane"/></p>-->
+	        	<p style="margin-bottoms:58px; font-size: 14px; margin-left:100px;" class_ss="message"><spring:message code="home.cabPlane"/></p>
 	        	<!-- add esta linea cuando la img es anormalmente supr-alta para no descuadrar--><p><br><br><br><br><br><br></p>
 	        	<!-- add esta linea cuando la img es anormalmente alta para no descuadrar--><p><br><br><br></p>
 	        	<!-- add esta linea cuando la linea de arriba vaya sola para no descuadrar<p><br></p>-->
@@ -37,7 +36,7 @@
 <script language="JavaScript" type="text/javascript">
 <!--
 
-var mp3snd = "/web/img/mp3/CastelnuovoTedesco_Fantasia_Op.mp3";
+var mp3snd = "/web/img/mp3/BachJSJesusDubistmeineFreude.mp3";
 
 document.write('<audio id="musicBG" controls autoplay preload="auto">');
 //document.write('<audio id="musicBG" controls preload="auto">');

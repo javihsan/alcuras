@@ -51,7 +51,7 @@ String path = (String)request.getAttribute("path");
     	                	<ul>
     	                		<li><a href="salud-servicios-pediatria"><spring:message code="salud.servicios.pediatria"/></a></li>
                             	<li><a href="salud-servicios-interna"><spring:message code="salud.servicios.interna"/></a></li>
-	                        	<li><a href="salud-servicios-homeop"><spring:message code="salud.servicios.homeop"/></a></li>
+	                        	<!--<li><a href="salud-servicios-homeop"><spring:message code="salud.servicios.homeop"/></a></li>-->
 	                        	<li><a href="salud-servicios-ferti"><spring:message code="salud.servicios.ferti"/></a></li>
                     	        <li><a href="salud-servicios-music"><spring:message code="salud.servicios.music"/></a></li>
                     	        <li><a href="salud-servicios-voz"><spring:message code="salud.servicios.voz"/></a></li>

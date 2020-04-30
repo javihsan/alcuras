@@ -184,9 +184,9 @@
 				<entry key="salud-servicios">
 					<value>SaludServicios</value> 
 				</entry>
-				<entry key="salud-servicios-homeop">
+				<!--<entry key="salud-servicios-homeop">
 					<value>SaludServiciosHomeop</value> 
-				</entry>
+				</entry>-->
 				<entry key="salud-servicios-interna">
 					<value>SaludServiciosInterna</value> 
 				</entry>
