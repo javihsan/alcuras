@@ -7,7 +7,7 @@
 	<artifactId>alcurasweb</artifactId>
 
 	<!-- VERSION -->
-	<version>r8-0-6</version>
+	<version>r8-0-5</version>
 
 	<packaging>war</packaging>
 	<name>${project.artifactId}</name>

@@ -82,9 +82,9 @@ String path = (String)request.getAttribute("path");
                     	    </ul>
                 	    </div>
             	    </li>
-            	    <li <% if (path.indexOf("instala")!=-1){ %> class="selected" <%}%>
-	            	><a href="salud-instala"><span><img src="/web/img/menuPointInstala.png" width="24" height="20" alt="<spring:message code="salud.instala"/>" /></span><spring:message code="salud.instala"/></a></li>
-				    <li <% if (path.indexOf("situacion")!=-1){ %> class="selected" <%}%>
+            	    <!--<li
+            	    ><a href="salud-instala"><span><img src="/web/img/menuPointInstala.png" width="24" height="20" alt="<spring:message code="salud.instala"/>" /></span><spring:message code="salud.instala"/></a></li>-->
+            	    <li <% if (path.indexOf("situacion")!=-1){ %> class="selected" <%}%>
 	            	><a href="salud-situacion"><span><img src="/web/img/menuPointWhere.png" width="24" height="20" alt="<spring:message code="salud.situacion"/>" /></span><spring:message code="salud.situacion"/></a></li>
 				    <li <% if (path.indexOf("contacto")!=-1){ %> class="selected" <%}%>
 	            	><a href="salud-contacto"><span><img src="/web/img/menuPointContact.png" width="24" height="18" alt="<spring:message code="salud.contacto"/>" /></span><spring:message code="salud.contacto"/></a></li>
