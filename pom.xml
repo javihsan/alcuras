@@ -122,7 +122,7 @@
 				<environment>prod</environment>
 				<module.instance.type>${default.prod.type}</module.instance.type>
 				<web.xml.filename>web.xml</web.xml.filename>
-				 <module.scaling.type><![CDATA[<automatic-scaling/>]]></module.scaling.type>
+				<module.scaling.type><![CDATA[<automatic-scaling/>]]></module.scaling.type>
 			</properties>
 		</profile>
 	</profiles>
