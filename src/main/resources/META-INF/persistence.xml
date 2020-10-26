@@ -3,11 +3,19 @@
 
     <persistence-unit name="transactions-optional">
         <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <class>com.alcuras.web.persist.entities.Articulo</class>
+        <class>com.alcuras.web.persist.entities.Evento</class>
+        <class>com.alcuras.web.persist.entities.Mensaje</class>
+        <class>com.alcuras.web.persist.entities.Web</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        
         <properties>
             <property name="datanucleus.NontransactionalRead" value="true"/>
             <property name="datanucleus.NontransactionalWrite" value="true"/>
             <property name="datanucleus.ConnectionURL" value="appengine"/>
+            <property name="datanucleus.singletonEMFForName" value="true"/>
         </properties>
+        
     </persistence-unit>
 
 </persistence>

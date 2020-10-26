@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alcuras.web.negocio.dao.WebDAO;
 import com.alcuras.web.negocio.dto.WebDTO;
-import com.alcuras.web.persist.manager.WebManager;
 import com.google.appengine.api.blobstore.BlobKey;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;

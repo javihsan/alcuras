@@ -17,6 +17,7 @@ import com.alcuras.web.negocio.utils.NullAwareBeanUtilsBean;
 import com.alcuras.web.persist.entities.Web;
 import com.alcuras.web.persist.transformer.WebTransformer;
 
+
 @Component
 @Scope(value = "singleton")
 public class WebManager implements WebDAO {

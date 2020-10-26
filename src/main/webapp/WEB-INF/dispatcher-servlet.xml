@@ -85,7 +85,7 @@
 				</entry>
 			</map>
 		</property>
-	</bean>
+	</bean> 
 	
 	<bean id="articuloController" class="com.alcuras.web.controllers.ArticuloController">
 		<property name="viewMap">
@@ -151,7 +151,7 @@
 		<property name="recipient" value="info@alcuras.com" />
 		<property name="subject" value="Alcuras Comunicaciones interesado: " />
 	</bean>
-	
+
 	<bean id="webController" class="com.alcuras.web.controllers.WebController">
 		<property name="viewMap">
 			<map>
@@ -173,7 +173,7 @@
 				</entry>
 			</map>
 		</property>
-	</bean>
+	</bean> 
 	
 	<bean id="redirectController" class="com.alcuras.web.controllers.RedirectController">
 		<property name="viewMap">
@@ -373,6 +373,9 @@
 	</bean>
 	
 	<bean id="beanEMF" class="com.alcuras.web.persist.manager.EMF" />
+	<bean id="articuloManager" class="com.alcuras.web.persist.manager.ArticuloManager" />
+	<bean id="eventoManager" class="com.alcuras.web.persist.manager.EventoManager" />
+	<bean id="mensajeManager" class="com.alcuras.web.persist.manager.MensajeManager" />
+	<bean id="webManager" class="com.alcuras.web.persist.manager.WebManager" />
 		
-	
 </beans>
