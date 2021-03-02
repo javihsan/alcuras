@@ -23,8 +23,8 @@
 					<a href="salud-servicios-ferti" class="ferti <%=RequestContextUtils.getLocale(request).getLanguage()%>">
 						<spring:message code="salud.servicios.ferti"/>
 					</a>
-					 <a href="salud-servicios-homeop" class="homeo <%=RequestContextUtils.getLocale(request).getLanguage()%>">
-	        	    	<spring:message code="salud.servicios.homeop"/>
+					<a href="" class="homeo <%=RequestContextUtils.getLocale(request).getLanguage()%>">&nbsp;
+	        	    	
 	        	    </a>
 	        	    <a href="salud-servicios-antro" class="antro <%=RequestContextUtils.getLocale(request).getLanguage()%>">
 						 <spring:message code="salud.servicios.antroImg"/>

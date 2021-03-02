@@ -28,6 +28,9 @@
         			<a target="_blank" href="https://www.facebook.com/pages/Alcuras-Arte-Salud-Comunicaciones/519491624794795">
 	        			<img src="/web/img/social/icon-facebook.gif" width="25" border="0"/>
         			</a>
+        			<a target="_blank" href="https://www.linkedin.com/in/alcuras-s-l-73685973">
+	        			<img src="/web/img/social/social-linkedin_icon.png" width="25" border="0"/>
+        			</a>
 				</div>
 				
 				   	 		
