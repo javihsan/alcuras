@@ -13,10 +13,11 @@
 	        	<!--<p class="textTitle" style="margin-bottom:6px; font-size: 12px;"><spring:message code="home.cabPlane"/></p>-->
 	        	<p style="margin-bottoms:58px; font-size: 14px; margin-left:10px;" class_ss="message"><spring:message code="home.cabPlane"/></p>
 	        	<!-- add esta linea cuando la img es anormalmente supr-alta para no descuadrar--><p><br><br><br><br><br><br></p>
-	        	<!-- add esta linea cuando la img es anormalmente alta para no descuadrar--><p><br><br><br></p>
+	        	<!-- add esta linea cuando la img es anormalmente alta para no descuadrar<p><br><br><br></p>-->
 	        	<!-- add esta linea cuando la linea de arriba vaya sola para no descuadrar<p><br></p>-->
-	        	<p style="margin-bottoms:58px; font-size: 12px; margin-left:10px;"><spring:message code="home.textPlane"/><br><br><br></p>
-	        	<!--<p style="margin-bottoms:28px; font-size: 15px; color:#006eb3; line-height:15px;"><a target="_blank" href="/web/img/home/GrenzZeitenCartel.jpg"><spring:message code="home.textPlane"/></a><br><br><br><br><br><br><br><br></p>--> 
+	        	<!--<p style="margin-bottoms:58px; font-size: 12px; margin-left:10px;"><spring:message code="home.textPlane"/><br><br><br></p>-->
+	        	<p style="margin-bottom:5px; margin-left:10px; font-size: 15px; color:#006eb3; line-height:15px;"><a target="_blank" href="/web/img/home/TratamientoFXMayr_<%=RequestContextUtils.getLocale(request).getLanguage()%>.pdf"><spring:message code="home.textPlane"/></a><br><br></p>
+	        	<p style="margin-left:10px; font-size: 15px; color:#006eb3; line-height:15px;"><a target="_blank" href="/web/img/home/LanzaroteFXMCitas2022.jpg"><spring:message code="home.textPlane2"/></a><br><br><br><br><br><br><br><br></p>
 	         </div> 
 	       	 <div style="margin-top:130px !important;" class="menuHome">
 	        	<a href="salud-home"><img src="/web/img/<spring:message code="img.menuSalud"/>" width="346" height="79" alt="<spring:message code="salud.home"/>" /></a>
