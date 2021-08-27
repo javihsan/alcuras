@@ -71,9 +71,10 @@ body{
 	}
 		.logoCentral{
 			position:relative;
-			top:17px;
-			left:5px;
+			top:15px;
+			left:11px;
 			bottom:2px;
+			width:250px;
 		}
 		.leftHeaderContainer{
 			float:left;	
