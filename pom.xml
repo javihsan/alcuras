@@ -259,6 +259,7 @@
 					<include>imagenes/*.*</include>
 					<include>jsp/*.xml</include>
 					<include>util/*.js</include>
+					<include>css/*.css</include>
 				</includes>
 			</resource>
 			<resource>

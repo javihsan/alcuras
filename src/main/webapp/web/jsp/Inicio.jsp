@@ -3,7 +3,7 @@
 		
 			<div style="margin-top:57px !important;" class="menuHome">
 	        	<a target="_blank" href="/web/img/home/TratamientoFXMayr_<%=RequestContextUtils.getLocale(request).getLanguage()%>.pdf">
-	        		<img style="margin-bottom:10px; margin-lefts:100px; margin-left:200px;" src="/web/img/home/AbdomenFxTipos.png" width="180px" height="250px" alt="" />
+	        		<img style="margin-top:27px !important; margin-bottom:10px; margin-lefts:100px; margin-left:200px;" src="/web/img/home/AbdomenFxTipos.png" width="220px" height="290px" alt="" />
 	        	</a>
 	        	<!--<img style="margin-bottom:10px; margin-lefts:100px; margin-left:200px;" src="/web/img/home/Flores.jpg" width="366px" widths="486px" height="200px" heights="288px" alt="" />-->
 	        	<!--<iframe style="margin-bottom:10px; margin-left:100px;" src="https://player.vimeo.com/video/157274249" width="486" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
