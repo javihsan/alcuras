@@ -268,6 +268,9 @@
 				<entry key="salud-talleres">
 					<value>SaludTalleres</value> 
 				</entry>
+				<entry key="salud-servicios-buceo">
+					<value>SaludServiciosBuceo</value> 
+				</entry>
 				<entry key="comun-home">
 					<value>ComunHome</value> 
 				</entry>

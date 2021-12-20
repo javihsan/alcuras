@@ -7,7 +7,7 @@
 	        		
         		<!-- spring:message code="salud.talleres.text"/-->
         		
-        		
+        		<!--
         		<p><strong><spring:message code="salud.talleres.list"/></strong></p>
 	          	<ul class="articlesList">
 					<li class="message">
@@ -25,7 +25,7 @@
 							Taller - "Voz y Canto.pdf" 
 						</a>
 					</li>
-				</ul>
+				</ul>-->
         		
 	        </div>
 	    </div>		

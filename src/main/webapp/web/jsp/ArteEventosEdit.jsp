@@ -11,10 +11,10 @@ EventoDTO eventoBean = (EventoDTO)request.getAttribute("evento");
 
 String uploadURL = blobstoreService.createUploadUrl("/fileUpload");
 //add host if in dev mode
-if (com.google.appengine.api.utils.SystemProperty.environment.value() == com.google.appengine.api.utils.SystemProperty.Environment.Value.Production)
-{
-	uploadURL = /*"http://localhost:8888" + */uploadURL.substring(uploadURL.indexOf("/_ah"));
-}
+//if (com.google.appengine.api.utils.SystemProperty.environment.value() == com.google.appengine.api.utils.SystemProperty.Environment.Value.Production)
+//{
+	//uploadURL = /*"http://localhost:8888" + */uploadURL.substring(uploadURL.indexOf("/_ah"));
+//}
 %>
 
 <%@include file="CabeceraArteManager.jsp"%>

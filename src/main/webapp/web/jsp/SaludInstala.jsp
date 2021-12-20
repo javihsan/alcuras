@@ -11,10 +11,7 @@
 	        	<div class="" style="float:left; margin-right:10px; margin-top:30px;">
 	        		<img src="/web/img/corpo/005_AlcurasCorpo.jpg" width="310" height="441" class="" />
 	        	</div>
-	        	<div class="break" style="float:left; margin-right:10px; margin-top:-90px;">
-	        		<img src="/web/img/corpo/Terraza_AlcurasCorpo.jpg" width="310" height="441" class="" />
-	        	</div>
-	        	<div class="" style="float:left; margin-right:10px; margin-top:30px;">
+	        	<div class="" style="float:left; margin-right:10px; margin-top:-50px;">
 	        		<img src="/web/img/corpo/007_AlcurasCorpo.jpg" width="310" height="401" class="" />
 	        	</div>
 	         

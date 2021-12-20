@@ -49,17 +49,18 @@ String path = (String)request.getAttribute("path");
             	    	<div class="subMenuSign"><img src="/web/img/menuSignal.gif" width="16" height="28" /></div>
         	            <div class="subMenuDiv">
     	                	<ul>
-    	                		<li><a href="salud-servicios-pediatria"><spring:message code="salud.servicios.pediatria"/></a></li>
+    	                		<!--<li><a href="salud-servicios-pediatria"><spring:message code="salud.servicios.pediatria"/></a></li>-->
                             	<li><a href="salud-servicios-interna"><spring:message code="salud.servicios.interna"/></a></li>
 	                        	<!--<li><a href="salud-servicios-homeop"><spring:message code="salud.servicios.homeop"/></a></li>-->
-	                        	<li><a href="salud-servicios-ferti"><spring:message code="salud.servicios.ferti"/></a></li>
-                    	        <li><a href="salud-servicios-music"><spring:message code="salud.servicios.music"/></a></li>
-                    	        <li><a href="salud-servicios-voz"><spring:message code="salud.servicios.voz"/></a></li>
-                    	        <li><a href="salud-servicios-preven"><spring:message code="salud.servicios.preven"/></a></li>
+	                        	<!--<li><a href="salud-servicios-ferti"><spring:message code="salud.servicios.ferti"/></a></li>-->
+                    	        <!--<li><a href="salud-servicios-music"><spring:message code="salud.servicios.music"/></a></li>-->
+                    	        <!--<li><a href="salud-servicios-voz"><spring:message code="salud.servicios.voz"/></a></li>-->
+                    	        <!--<li><a href="salud-servicios-preven"><spring:message code="salud.servicios.preven"/></a></li>-->
 								<li><a href="salud-servicios-antro"><spring:message code="salud.servicios.antro"/></a></li>
                 	            <li><a href="salud-servicios-orto"><spring:message code="salud.servicios.orto"/></a></li>
                 	            <li><a href="salud-servicios-psicos"><spring:message code="salud.servicios.psicos"/></a></li>
                 	            <li><a href="salud-talleres"><spring:message code="salud.talleres"/></a></li>
+                	            <li><a href="salud-servicios-buceo"><spring:message code="salud.servicios.buceo"/></a></li>
             	            </ul>
         	            </div>
     	            </li>

@@ -5,6 +5,7 @@
 	            <div class="imgCaption"></div>
 	        		
         		<spring:message code="salud.home.text"/>
+        		<!-- 
 				<div class="divFondoSalud"></div>
 				
 				<div class="divArbol">					
@@ -41,8 +42,8 @@
 					<a href="salud-servicios-interna" class="interna <%=RequestContextUtils.getLocale(request).getLanguage()%>">
 						<spring:message code="salud.servicios.internaImg"/>
 					</a>
-				</div>
-			</div>
+				</div> 
+			</div>-->
 	    		
 		</div>	
 	
