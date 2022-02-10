@@ -1,20 +1,12 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.alcuras.web.negocio.dto.EventoDTO" %>
 <%@ page import="com.alcuras.web.negocio.utils.Utils" %>
-<%@ page import="com.google.appengine.api.blobstore.*" %>
+
 <%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
 <%
 String urlRedirect = (String)request.getAttribute("urlRedirect");
-final BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-final BlobInfoFactory blobInfoFactory = new BlobInfoFactory(DatastoreServiceFactory.getDatastoreService());
 EventoDTO eventoBean = (EventoDTO)request.getAttribute("evento");
-
-String uploadURL = blobstoreService.createUploadUrl("/fileUpload");
-//add host if in dev mode
-//if (com.google.appengine.api.utils.SystemProperty.environment.value() == com.google.appengine.api.utils.SystemProperty.Environment.Value.Production)
-//{
-	//uploadURL = /*"http://localhost:8888" + */uploadURL.substring(uploadURL.indexOf("/_ah"));
-//}
+String uploadURL = "/fileUpload";
 %>
 
 <%@include file="CabeceraArteManager.jsp"%>
@@ -147,7 +139,7 @@ function putImagenHidden(){
 			</p>
           	<p>	
 
-				<form action="<%= uploadURL %>" method="post" name="ArteEventoEdit" id="ArteEventoEdit"  enctype="multipart/form-data" />
+				<form action="<%= uploadURL %>" method="post" name="ArteEventoEdit" id="ArteEventoEdit" enctype="multipart/form-data" />
 				
 				<table align="center" width="90%" cellspacing="2" cellpadding="0" border="0">
 				<tr><td height="10px"><SPACER type="block"></td></tr>
@@ -247,11 +239,9 @@ function putImagenHidden(){
 				    	<input type="file" name="eveFichero" size="35" onChange="putFicheroHidden()">
 				    	<%  String artFicheroName = "";
 				    		if (eventoBean!=null 
-				    				&& eventoBean.getEveFichero()!=null
-				    					&& eventoBean.getEveFichero().length()>0){ 
-				    		BlobKey blobKey = new BlobKey(eventoBean.getEveFichero());
-							BlobInfo blobInfo = blobInfoFactory.loadBlobInfo(blobKey);
-							artFicheroName = blobInfo.getFilename();%>
+				    				&& eventoBean.getEveFicheroName()!=null
+				    					&& eventoBean.getEveFicheroName().length()>0){ 
+				    			artFicheroName = eventoBean.getEveFicheroName();%>
 				    		<%= artFicheroName %>
 				    	<% } %>
 				    	<input type="radio" name="eveTipoLink" value="1" onChange="changeTipoLink()" checked />
@@ -305,11 +295,9 @@ function putImagenHidden(){
 				    	<input type="file" name="eveImagen" size="35" onChange="putImagenHidden()">
 				    	<%  String artImagenName = "";
 				    		if (eventoBean!=null 
-				    				&& eventoBean.getEveImagen()!=null
-				    					&& eventoBean.getEveImagen().length()>0){ 
-				    		BlobKey blobKey = new BlobKey(eventoBean.getEveImagen());
-							BlobInfo blobInfo = blobInfoFactory.loadBlobInfo(blobKey);
-							artImagenName = blobInfo.getFilename();%>
+				    				&& eventoBean.getEveImagenName()!=null
+				    					&& eventoBean.getEveImagenName().length()>0){ 
+				    			artImagenName = eventoBean.getEveImagenName();%>
 				    		<br><%= artImagenName %>
 				    		<input type="checkbox" name="eveImagenDelete" /> <spring:message code="general.deleteImg"/>
 				    	<% } %>

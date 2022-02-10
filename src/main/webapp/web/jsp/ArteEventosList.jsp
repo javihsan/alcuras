@@ -29,7 +29,7 @@ function abrirVentana(ruta){
 				%>
 				<li class="message">
 				  <% if (eventoBean.getEveTipoLink()==1){ %>
-				      	<a href="../../fileServe?blob-key=<%=eventoBean.getEveFichero()%>">
+				      	<a href="../../fileServe?objectId=<%=eventoBean.getEveFichero()%>&fileName=<%=eventoBean.getEveFicheroName()%>">
 				      <% } else if (eventoBean.getEveTipoLink()==2){ %>
 				      	<a target="_blank" href="<%=eventoBean.getEveLink()%>">
 				      <% } else if (eventoBean.getEveTipoLink()==3){ %>

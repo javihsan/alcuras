@@ -56,8 +56,12 @@ public class Evento implements Serializable {
 	private String eveIdUsu;
  
 	private String eveFichero;
+	
+	private String eveFicheroName;
 
 	private String eveImagen;
+	
+	private String eveImagenName;
 	
 	private String eveLink;
 	
@@ -171,12 +175,28 @@ public class Evento implements Serializable {
 		this.eveFichero = eveFichero;
 	}
 
+	public String getEveFicheroName() {
+		return eveFicheroName;
+	}
+
+	public void setEveFicheroName(String eveFicheroName) {
+		this.eveFicheroName = eveFicheroName;
+	}
+	
 	public String getEveImagen() {
 		return eveImagen;
 	}
 
 	public void setEveImagen(String eveImagen) {
 		this.eveImagen = eveImagen;
+	}
+	
+	public String getEveImagenName() {
+		return eveImagenName;
+	}
+
+	public void setEveImagenName(String eveImagenName) {
+		this.eveImagenName = eveImagenName;
 	}
 	
 	public String getEveLink() {

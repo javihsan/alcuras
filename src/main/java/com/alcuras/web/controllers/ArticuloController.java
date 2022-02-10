@@ -17,9 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alcuras.web.negocio.dao.ArticuloDAO;
 import com.alcuras.web.negocio.dto.ArticuloDTO;
 import com.alcuras.web.negocio.utils.Utils;
-import com.google.appengine.api.blobstore.BlobKey;
-import com.google.appengine.api.blobstore.BlobstoreService;
-import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.api.datastore.Text;
 
 @Controller
@@ -125,29 +122,26 @@ public class ArticuloController {
 		
 		ModelAndView mav = null;
 		
-		String artIdUsu = arg0.getParameter("artIdUsu");
+		String artIdUsu = (String)arg0.getAttribute("artIdUsu");
 		
 		if (artIdUsu!=null){ // Recogemos de formulario para nuevo
 			
-			String fecha = arg0.getParameter("artFecha");
+			String fecha = (String)arg0.getAttribute("artFecha");
 			Date artFecha = Utils.getDate(fecha);
 
-			String artAsuntoEs = arg0.getParameter("artAsuntoEs");
+			String artAsuntoEs = (String)arg0.getAttribute("artAsuntoEs");
 			if (arg0.getCharacterEncoding()!=null){
-				artAsuntoEs = new String(arg0.getParameter("artAsuntoEs").getBytes(
-						"iso-8859-1"), "UTF-8");
+				artAsuntoEs = new String(((String)arg0.getAttribute("artAsuntoEs")).getBytes("iso-8859-1"), "UTF-8");
 			}
-			String artAsuntoEn = arg0.getParameter("artAsuntoEn");
+			String artAsuntoEn = (String)arg0.getAttribute("artAsuntoEn");
 			if (arg0.getCharacterEncoding()!=null){
-				artAsuntoEn = new String(arg0.getParameter("artAsuntoEn").getBytes(
-					"iso-8859-1"), "UTF-8");
+				artAsuntoEn = new String(((String)arg0.getAttribute("artAsuntoEn")).getBytes("iso-8859-1"), "UTF-8");
 			}
-			String artAsuntoDe = arg0.getParameter("artAsuntoDe");
+			String artAsuntoDe = (String)arg0.getAttribute("artAsuntoDe");
 			if (arg0.getCharacterEncoding()!=null){
-				artAsuntoDe = new String(arg0.getParameter("artAsuntoDe").getBytes(
-					"iso-8859-1"), "UTF-8");
+				artAsuntoDe = new String(((String)arg0.getAttribute("artAsuntoDe")).getBytes("iso-8859-1"), "UTF-8");
 			}
-			String strArtTextoEs = arg0.getParameter("artTextoEs");
+			String strArtTextoEs = (String)arg0.getAttribute("artTextoEs");
 			Text artTextoEs = null;
 			if (strArtTextoEs!=null){
 				if (arg0.getCharacterEncoding()!=null){
@@ -155,7 +149,7 @@ public class ArticuloController {
 				}
 				artTextoEs = new Text(strArtTextoEs);
 			}			
-			String strArtTextoEn = arg0.getParameter("artTextoEn");
+			String strArtTextoEn = (String)arg0.getAttribute("artTextoEn");
 			Text artTextoEn = null;
 			if (strArtTextoEn!=null){
 				if (arg0.getCharacterEncoding()!=null){
@@ -163,7 +157,7 @@ public class ArticuloController {
 				}
 				artTextoEn = new Text(strArtTextoEn);
 			}
-			String strArtTextoDe = arg0.getParameter("artTextoDe");
+			String strArtTextoDe = (String)arg0.getAttribute("artTextoDe");
 			Text artTextoDe = null;
 			if (strArtTextoDe!=null){
 				if (arg0.getCharacterEncoding()!=null){
@@ -173,16 +167,18 @@ public class ArticuloController {
 			}
 			
 	        Integer artActivado = 0;
-			if (arg0.getParameter("artActivado")!=null){
+			if (arg0.getAttribute("artActivado")!=null){
 				artActivado = 1;
 			}
 	        
 			String artFichero = (String)arg0.getAttribute("artFichero");
+			String artFicheroName = (String) arg0.getAttribute("artFicheroName");
 			String artImagen = (String)arg0.getAttribute("artImagen");
+			String artImagenName = (String) arg0.getAttribute("artImagenName");
 			
-			String artLink = (String)arg0.getParameter("artLink");
+			String artLink = (String)arg0.getAttribute("artLink");
 
-			int artTipoLink = Integer.parseInt(arg0.getParameter("artTipoLink"));
+			int artTipoLink = Integer.parseInt((String)arg0.getAttribute("artTipoLink"));
 			
 	        ArticuloDTO articulo = new ArticuloDTO();
 	        articulo.setArtIdForo(getType());
@@ -196,7 +192,9 @@ public class ArticuloController {
 	        articulo.setArtActivado(artActivado);
 	        articulo.setArtFecha(artFecha);
 	        articulo.setArtFichero(artFichero);
+	        articulo.setArtFicheroName(artFicheroName);
 	        articulo.setArtImagen(artImagen);
+	        articulo.setArtImagenName(artImagenName);
 	        articulo.setArtLink(artLink);
 	        articulo.setArtTipoLink(artTipoLink);
 	        
@@ -250,24 +248,21 @@ public class ArticuloController {
 	private ModelAndView articuloUpdate(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
 		
-		Long artId = Long.valueOf(arg0.getParameter("artId"));
+		Long artId = Long.valueOf((String)arg0.getAttribute("artId"));
 
-		String artAsuntoEs = arg0.getParameter("artAsuntoEs");
+		String artAsuntoEs = (String)arg0.getAttribute("artAsuntoEs");
 		if (arg0.getCharacterEncoding()!=null){
-			artAsuntoEs = new String(arg0.getParameter("artAsuntoEs").getBytes(
-					"iso-8859-1"), "UTF-8");
+			artAsuntoEs = new String(((String)arg0.getAttribute("artAsuntoEs")).getBytes("iso-8859-1"), "UTF-8");
 		}
-		String artAsuntoEn = arg0.getParameter("artAsuntoEn");
+		String artAsuntoEn = (String)arg0.getAttribute("artAsuntoEn");
 		if (arg0.getCharacterEncoding()!=null){
-			artAsuntoEn = new String(arg0.getParameter("artAsuntoEn").getBytes(
-				"iso-8859-1"), "UTF-8");
+			artAsuntoEn = new String(((String)arg0.getAttribute("artAsuntoEn")).getBytes("iso-8859-1"), "UTF-8");
 		}
-		String artAsuntoDe = arg0.getParameter("artAsuntoDe");
+		String artAsuntoDe = (String)arg0.getAttribute("artAsuntoDe");
 		if (arg0.getCharacterEncoding()!=null){
-			artAsuntoDe = new String(arg0.getParameter("artAsuntoDe").getBytes(
-				"iso-8859-1"), "UTF-8");
+			artAsuntoDe = new String(((String)arg0.getAttribute("artAsuntoDe")).getBytes("iso-8859-1"), "UTF-8");
 		}
-		String strArtTextoEs = arg0.getParameter("artTextoEs");
+		String strArtTextoEs = (String)arg0.getAttribute("artTextoEs");
 		Text artTextoEs = null;
 		if (strArtTextoEs!=null){
 			if (arg0.getCharacterEncoding()!=null){
@@ -275,7 +270,7 @@ public class ArticuloController {
 			}
 			artTextoEs = new Text(strArtTextoEs);
 		}			
-		String strArtTextoEn = arg0.getParameter("artTextoEn");
+		String strArtTextoEn = (String)arg0.getAttribute("artTextoEn");
 		Text artTextoEn = null;
 		if (strArtTextoEn!=null){
 			if (arg0.getCharacterEncoding()!=null){
@@ -283,7 +278,7 @@ public class ArticuloController {
 			}
 			artTextoEn = new Text(strArtTextoEn);
 		}
-		String strArtTextoDe = arg0.getParameter("artTextoDe");
+		String strArtTextoDe = (String)arg0.getAttribute("artTextoDe");
 		Text artTextoDe = null;
 		if (strArtTextoDe!=null){
 			if (arg0.getCharacterEncoding()!=null){
@@ -292,23 +287,26 @@ public class ArticuloController {
 			artTextoDe = new Text(strArtTextoDe);
 		}
 		
-		String fecha = arg0.getParameter("artFecha");
+		String fecha = (String)arg0.getAttribute("artFecha");
 		Date artFecha = Utils.getDate(fecha);
-		String artIdUsu = arg0.getParameter("artIdUsu");
+		String artIdUsu = (String)arg0.getAttribute("artIdUsu");
 		
 		Integer artActivado = 0;
-		if (arg0.getParameter("artActivado")!=null){
+		if (arg0.getAttribute("artActivado")!=null){
 			artActivado = 1;
 		}
         
 		String artFichero = (String)arg0.getAttribute("artFichero");
+		String artFicheroName = (String) arg0.getAttribute("artFicheroName");
 		String artImagen = (String)arg0.getAttribute("artImagen");
-		if (arg0.getParameter("artImagenDelete")!=null){
+		String artImagenName = (String) arg0.getAttribute("artImagenName");
+		if (arg0.getAttribute("artImagenDelete")!=null){
 			artImagen = "";
+			artImagenName = "";
 		}		
-		String artLink = (String)arg0.getParameter("artLink");
-		
-		int artTipoLink = Integer.parseInt(arg0.getParameter("artTipoLink"));
+		String artLink = (String)arg0.getAttribute("artLink");
+
+		int artTipoLink = Integer.parseInt((String)arg0.getAttribute("artTipoLink"));
 		
 		
 		ArticuloDTO articulo = new ArticuloDTO();
@@ -322,17 +320,18 @@ public class ArticuloController {
         articulo.setArtTextoDe(artTextoDe);
         articulo.setArtActivado(artActivado);
         articulo.setArtFecha(artFecha);
+        articulo.setArtFicheroName(artFicheroName);
         articulo.setArtFichero(artFichero);
         articulo.setArtImagen(artImagen);
+        articulo.setArtImagenName(artImagenName);
         articulo.setArtLink(artLink);
         articulo.setArtTipoLink(artTipoLink);
         
         articulo = articuloManager.update(articulo);
         
-        if (arg0.getParameter("artImagenDelete")!=null){
+        if (arg0.getAttribute("artImagenDelete")!=null){
 			if (articulo.getArtImagen()!=null){
-				BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService(); 
-				blobstoreService.delete(new BlobKey(articulo.getArtImagen()));
+				new EventoController().delete(articulo.getArtImagen());
 			}
 		}
         
@@ -348,21 +347,17 @@ public class ArticuloController {
 		int indx = 0;
 		Long id = null;
 		ArticuloDTO articulo = null;
-		BlobstoreService blobstoreService = null;
 		for (Enumeration params = arg0.getParameterNames(); params.hasMoreElements();) {
 			nameParam = (String) params.nextElement();
 			indx = nameParam.indexOf(ConstantsController.SELECTOR);
 			if (indx != -1){
 				id = Long.parseLong(nameParam.substring(ConstantsController.SELECTOR.length()));
-				if (blobstoreService==null){
-					blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-				}
 				articulo = articuloManager.remove(id);
 				if (articulo.getArtFichero()!=null){
-					blobstoreService.delete(new BlobKey(articulo.getArtFichero()));
+					new EventoController().delete(articulo.getArtFichero());
 				}
 				if (articulo.getArtImagen()!=null){
-					blobstoreService.delete(new BlobKey(articulo.getArtImagen()));
+					new EventoController().delete(articulo.getArtImagen());
 				}
 			}
 		}

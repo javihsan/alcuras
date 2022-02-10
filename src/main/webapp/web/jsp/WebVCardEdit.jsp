@@ -1,20 +1,11 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.alcuras.web.negocio.dto.WebDTO" %>
 <%@ page import="com.alcuras.web.negocio.utils.Utils" %>
-<%@ page import="com.google.appengine.api.blobstore.*" %>
 <%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
 <%
 String urlRedirect = (String)request.getAttribute("urlRedirect");
-final BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-final BlobInfoFactory blobInfoFactory = new BlobInfoFactory(DatastoreServiceFactory.getDatastoreService());
 WebDTO webBean = (WebDTO)request.getAttribute("web");
-
-String uploadURL = blobstoreService.createUploadUrl("/fileUpload");
-//add host if in dev mode
-if (com.google.appengine.api.utils.SystemProperty.environment.value() == com.google.appengine.api.utils.SystemProperty.Environment.Value.Production)
-{
-	uploadURL = /*"http://localhost:8888" + */uploadURL.substring(uploadURL.indexOf("/_ah"));
-}
+String uploadURL = "/fileUpload";
 %>
 
 <%@include file="CabeceraSaludAdmin.jsp"%>
@@ -63,11 +54,9 @@ function putFileHidden(){
 				    	<input type="file" name="webValorFile" size="35" onChange="putFileHidden()">
 				    	<%  String webValorFileName = "";
 				    		if (webBean!=null 
-				    				&& webBean.getWebValorFile()!=null
-				    					&& webBean.getWebValorFile().length()>0){ 
-				    		BlobKey blobKey = new BlobKey(webBean.getWebValorFile());
-							BlobInfo blobInfo = blobInfoFactory.loadBlobInfo(blobKey);
-							webValorFileName = blobInfo.getFilename();%>
+				    				&& webBean.getWebValorFileName()!=null
+				    					&& webBean.getWebValorFileName().length()>0){ 
+							webValorFileName = webBean.getWebValorFileName();%>
 				    		<br><%= webValorFileName %>
 				    		<input type="checkbox" name="webValorFileDelete" /> <spring:message code="general.deleteFile"/>
 				    	<% } %>

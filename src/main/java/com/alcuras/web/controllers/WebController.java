@@ -13,9 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alcuras.web.negocio.dao.WebDAO;
 import com.alcuras.web.negocio.dto.WebDTO;
-import com.google.appengine.api.blobstore.BlobKey;
-import com.google.appengine.api.blobstore.BlobstoreService;
-import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.api.datastore.Text;
 
 @Controller
@@ -87,24 +84,28 @@ public class WebController {
 	private ModelAndView webUpdate(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
 		
-		Long webId = Long.valueOf(arg0.getParameter("webId"));
+		Long webId = Long.valueOf((String)arg0.getAttribute("webId"));
 
 		String webValorFile = (String)arg0.getAttribute("webValorFile");
-		if (arg0.getParameter("webValorFileDelete")!=null){
+		String webValorFileName = (String)arg0.getAttribute("webValorFileName");
+		if (arg0.getAttribute("webValorFileDelete")!=null){
 			webValorFile = "";
+			webValorFileName = "";
 		}	
-		Text webValorTextEs = arg0.getParameter("webValorTextEs")!=null?new Text(arg0.getParameter("webValorTextEs")):null;
-		Text webValorTextEn = arg0.getParameter("webValorTextEn")!=null?new Text(arg0.getParameter("webValorTextEn")):null;
-		Text webValorTextDe = arg0.getParameter("webValorTextDe")!=null?new Text(arg0.getParameter("webValorTextDe")):null;
+	
+		Text webValorTextEs = arg0.getAttribute("webValorTextEs")!=null?new Text((String)arg0.getAttribute("webValorTextEs")):null;
+		Text webValorTextEn = arg0.getAttribute("webValorTextEn")!=null?new Text((String)arg0.getAttribute("webValorTextEn")):null;
+		Text webValorTextDe = arg0.getAttribute("webValorTextDe")!=null?new Text((String)arg0.getAttribute("webValorTextDe")):null;
 		
 		Integer artActivado = 0;
-		if (arg0.getParameter("webActivado")!=null){
+		if (arg0.getAttribute("webActivado")!=null){
 			artActivado = 1;
 		}
 		
 		WebDTO web = new WebDTO();
 		web.setWebId(webId);
         web.setWebValorFile(webValorFile);
+        web.setWebValorFileName(webValorFileName);
         web.setWebValorTextEs(webValorTextEs);
         web.setWebValorTextEn(webValorTextEn);
         web.setWebValorTextDe(webValorTextDe);
@@ -112,10 +113,9 @@ public class WebController {
         
         web = webManager.update(web);
         
-        if (arg0.getParameter("webValorFileDelete")!=null){
+        if (arg0.getAttribute("webValorFileDelete")!=null){
 			if (web.getWebValorFile()!=null){
-				BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService(); 
-				blobstoreService.delete(new BlobKey(web.getWebValorFile()));
+				new EventoController().delete(web.getWebValorFile());
 			}
 		}
         
@@ -131,7 +131,7 @@ public class WebController {
         
 		if (web != null && web.getWebValorFile()!= null && web.getWebValorFile()!= ""){ 
 			
-			 arg1.sendRedirect("/"+"vcardServe?blob-key="+web.getWebValorFile());
+			 arg1.sendRedirect("/"+"vcardServe?objectId="+web.getWebValorFile()+"&fileName="+web.getWebValorFileName());
 		}
 	        
 		return null;

@@ -19,6 +19,8 @@ public class WebDTO implements Serializable {
  
 	private String webValorFile;
 	
+	private String webValorFileName;
+	
 	private Text webValorTextEs;
 	
 	private Text webValorTextEn;
@@ -58,6 +60,14 @@ public class WebDTO implements Serializable {
 
 	public void setWebValorFile(String webValorFile) {
 		this.webValorFile = webValorFile;
+	}
+	
+	public String getWebValorFileName() {
+		return webValorFileName;
+	}
+
+	public void setWebValorFileName(String webValorFileName) {
+		this.webValorFileName = webValorFileName;
 	}
 
 	public Text getWebValorTextEs() {

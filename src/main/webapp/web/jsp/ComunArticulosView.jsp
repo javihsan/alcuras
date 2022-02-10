@@ -9,7 +9,7 @@ ArticuloDTO articuloBean = (ArticuloDTO)request.getAttribute("articulo");
 
 		<div class="textHome health">
 	            <p><strong><%=Utils.getFormat(articuloBean.getArtFecha()) %> <%=articuloBean.getArtAsunto(RequestContextUtils.getLocale(request).getLanguage())%> <spring:message code="general.by"/> <%=articuloBean.getArtIdUsuHtml()%></strong></p>
-	            <% if (articuloBean.getArtImagen()!=null && articuloBean.getArtImagen()!=""){ %><div class="imgCaption"><img src="../../imageServe?blob-key=<%=articuloBean.getArtImagen()%>&x=230&y=171" class="sectionMainPict" /></div><% } %>
+	            <% if (articuloBean.getArtImagen()!=null && articuloBean.getArtImagen()!=""){ %><div class="imgCaption"><img src="../../imageServe?objectId=<%=articuloBean.getArtImagen()%>&fileName=<%=articuloBean.getArtImagenName()%>&x=230&y=171" class="sectionMainPict" /></div><% } %>
 	        	<p><%=articuloBean.getArtTextoNoScape(RequestContextUtils.getLocale(request).getLanguage())%></p>     	
           	
 	    </div>

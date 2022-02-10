@@ -2,25 +2,14 @@ package com.alcuras.web.server;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.appengine.api.blobstore.BlobInfo;
-import com.google.appengine.api.blobstore.BlobInfoFactory;
-import com.google.appengine.api.blobstore.BlobKey;
-import com.google.appengine.api.blobstore.BlobstoreService;
-import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
-import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.alcuras.web.controllers.EventoController;
+import com.google.appengine.tools.cloudstorage.GcsFileMetadata;
 
 public class VCardServe extends HttpServlet {
-	private final static BlobstoreService blobstoreService = BlobstoreServiceFactory
-			.getBlobstoreService();
-	
-	private final static BlobInfoFactory blobInfoFactory = new
-	 BlobInfoFactory(DatastoreServiceFactory.getDatastoreService());
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws IOException {
@@ -45,14 +34,22 @@ public class VCardServe extends HttpServlet {
  
 			} else {
 				// Non-iPhone
-						
-				BlobKey blobKey = new BlobKey(req.getParameter("blob-key"));
-				BlobInfo blobInfo = blobInfoFactory.loadBlobInfo(blobKey);
-				res.setContentLength(new Long(blobInfo.getSize()).intValue());
-				res.setHeader("content-disposition", "attachment; filename="
-						+ blobInfo.getFilename());
-				res.setContentType("text/x-vcard");
-				blobstoreService.serve(blobKey, res);
+					
+				FileServe fs = new FileServe();
+				String objectId = req.getParameter("objectId");
+				String fileName = req.getParameter("fileName");
+				GcsFileMetadata metadata = fs.getMetadata(objectId, EventoController.BUCKET_NAME);
+
+				if ( metadata != null) {
+
+					res.setContentLength(new Long(metadata.getLength()).intValue());
+					res.setHeader("content-type", metadata.getOptions().getMimeType());
+					//res.setContentType("text/x-vcard");
+					res.setHeader("content-disposition", "attachment; filename=" + fileName);
+
+					fs.serve(objectId, res, EventoController.BUCKET_NAME);				
+					
+				}
 			}
 			
 		} catch (Exception e) {

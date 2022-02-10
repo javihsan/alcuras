@@ -53,8 +53,12 @@ public class Articulo implements Serializable {
 	private String artIdUsu;
  
 	private String artFichero;
+	
+	private String artFicheroName;
 
 	private String artImagen;
+	
+	private String artImagenName;
 	
 	private String artLink;
 	
@@ -159,12 +163,28 @@ public class Articulo implements Serializable {
 		this.artFichero = artFichero;
 	}
 
+	public String getArtFicheroName() {
+		return artFicheroName;
+	}
+
+	public void setArtFicheroName(String artFicheroName) {
+		this.artFicheroName = artFicheroName;
+	}
+	
 	public String getArtImagen() {
 		return artImagen;
 	}
 
 	public void setArtImagen(String artImagen) {
 		this.artImagen = artImagen;
+	}
+	
+	public String getArtImagenName() {
+		return artImagenName;
+	}
+
+	public void setArtImagenName(String artImagenName) {
+		this.artImagenName = artImagenName;
 	}
 	
 	public String getArtLink() {
@@ -181,6 +201,6 @@ public class Articulo implements Serializable {
 
 	public void setArtTipoLink(int artTipoLink) {
 		this.artTipoLink = artTipoLink;
-	}
+	}	
 	
 }

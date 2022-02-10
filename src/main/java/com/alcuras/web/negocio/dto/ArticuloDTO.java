@@ -36,7 +36,11 @@ public class ArticuloDTO implements Serializable {
  
 	private String artFichero;
 
+	private String artFicheroName;
+
 	private String artImagen;
+	
+	private String artImagenName;
 	
 	private String artLink;
 	
@@ -175,6 +179,14 @@ public class ArticuloDTO implements Serializable {
 		this.artFichero = artFichero;
 	}
 
+	public String getArtFicheroName() {
+		return artFicheroName;
+	}
+
+	public void setArtFicheroName(String artFicheroName) {
+		this.artFicheroName = artFicheroName;
+	}
+	
 	public String getArtImagen() {
 		return artImagen;
 	}
@@ -183,6 +195,14 @@ public class ArticuloDTO implements Serializable {
 		this.artImagen = artImagen;
 	}
 
+	public String getArtImagenName() {
+		return artImagenName;
+	}
+
+	public void setArtImagenName(String artImagenName) {
+		this.artImagenName = artImagenName;
+	}
+	
 	public String getArtLink() {
 		return artLink;
 	}

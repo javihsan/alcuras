@@ -1,20 +1,12 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.alcuras.web.negocio.dto.ArticuloDTO" %>
 <%@ page import="com.alcuras.web.negocio.utils.Utils" %>
-<%@ page import="com.google.appengine.api.blobstore.*" %>
+
 <%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
 <%
 String urlRedirect = (String)request.getAttribute("urlRedirect");
-final BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-final BlobInfoFactory blobInfoFactory = new BlobInfoFactory(DatastoreServiceFactory.getDatastoreService());
 ArticuloDTO articuloBean = (ArticuloDTO)request.getAttribute("articulo");
-
-String uploadURL = blobstoreService.createUploadUrl("/fileUpload");
-//add host if in dev mode
-if (com.google.appengine.api.utils.SystemProperty.environment.value() == com.google.appengine.api.utils.SystemProperty.Environment.Value.Production)
-{
-	uploadURL = /*"http://localhost:8888" + */uploadURL.substring(uploadURL.indexOf("/_ah"));
-}
+String uploadURL = "/fileUpload";
 %>
 
 <%@include file="CabeceraSaludManager.jsp"%>
@@ -203,11 +195,9 @@ function putImagenHidden(){
 				    	<input type="file" name="artFichero" size="35" onChange="putFicheroHidden()">
 				    	<%  String artFicheroName = "";
 				    		if (articuloBean!=null 
-				    				&& articuloBean.getArtFichero()!=null
-				    					&& articuloBean.getArtFichero().length()>0){ 
-				    		BlobKey blobKey = new BlobKey(articuloBean.getArtFichero());
-							BlobInfo blobInfo = blobInfoFactory.loadBlobInfo(blobKey);
-							artFicheroName = blobInfo.getFilename();%>
+				    				&& articuloBean.getArtFicheroName()!=null
+				    					&& articuloBean.getArtFicheroName().length()>0){ 
+							artFicheroName = articuloBean.getArtFicheroName();%>
 				    		<%= artFicheroName %>
 				    	<% } %>
 				    	<input type="radio" name="artTipoLink" value="1" onChange="changeTipoLink()" checked />
@@ -261,11 +251,9 @@ function putImagenHidden(){
 				    	<input type="file" name="artImagen" size="35" onChange="putImagenHidden()">
 				    	<%  String artImagenName = "";
 				    		if (articuloBean!=null 
-				    				&& articuloBean.getArtImagen()!=null
-				    					&& articuloBean.getArtImagen().length()>0){ 
-				    		BlobKey blobKey = new BlobKey(articuloBean.getArtImagen());
-							BlobInfo blobInfo = blobInfoFactory.loadBlobInfo(blobKey);
-							artImagenName = blobInfo.getFilename();%>
+				    				&& articuloBean.getArtImagenName()!=null
+				    					&& articuloBean.getArtImagenName().length()>0){ 
+							artImagenName = articuloBean.getArtImagenName();%>
 				    		<br><%= artImagenName %>
 				    		<input type="checkbox" name="artImagenDelete" /> <spring:message code="general.deleteImg"/>
 				    	<% } %>
