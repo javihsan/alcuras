@@ -24,7 +24,13 @@ public class AccountsAuthenticationEntryPoint implements
 			HttpServletResponse response, AuthenticationException authException)
 			throws IOException, ServletException {
 
-		String redirectURL = UserServiceFactory.getUserService().createLoginURL(request.getRequestURI());
+		String path = ((HttpServletRequest)request).getServletPath();
+		String redirectURL = null;
+		if (path.toLowerCase().indexOf(AuthenticationFilter.EXTERNAL.toLowerCase())!=-1){
+			redirectURL = "/login";
+		} else {
+			redirectURL = UserServiceFactory.getUserService().createLoginURL(request.getRequestURI());
+		}
 		response.sendRedirect(redirectURL);
 	}
 

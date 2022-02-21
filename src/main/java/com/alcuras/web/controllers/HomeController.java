@@ -21,7 +21,7 @@ public class HomeController {
 
 	}
 	
-	@RequestMapping(value={"inicio", "inicioAdmin", "inicioManager"})
+	@RequestMapping(value={"inicio", "inicioAdmin", "inicioManager", "inicioExternal"})
 	private ModelAndView inicioInit(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
 		
@@ -32,6 +32,8 @@ public class HomeController {
 			mav = new ModelAndView(getView()+ConstantsController.ADMIN);
 		} else if (path.indexOf(ConstantsController.MANAGER)!=-1){
 			mav = new ModelAndView(getView()+ConstantsController.MANAGER);
+		} else if (path.indexOf(ConstantsController.EXTERNAL)!=-1){
+			mav = new ModelAndView(getView()+ConstantsController.EXTERNAL);
 		}
 				
 		return mav;

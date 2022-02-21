@@ -15,6 +15,7 @@ public class ConstantsController {
 	public final static String SELECTOR = "Selector";
 	public final static String ADMIN = "Admin";
 	public final static String MANAGER = "Manager";
+	public final static String EXTERNAL = "External";
 	public final static String SEND = "Send";
 	public final static String DOWNLOAD = "Download";
 	

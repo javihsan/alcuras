@@ -8,9 +8,9 @@
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
 	<http use-expressions="true" entry-point-ref="gwtEntryPoint">
-		<!--<intercept-url pattern="/register.do*" access="hasRole('NEW_USER')" />-->
 		<intercept-url pattern="/**/**admin**/**" access="hasRole('ADMIN')" />
 		<intercept-url pattern="/**/**manager**/**" access="hasAnyRole('ADMIN','MANAGER')" />
+		<intercept-url pattern="/**/**external**/**" access="hasAnyRole('USER')" />
 		<intercept-url pattern="/**/**comentarios-new**/**" access="permitAll" />
 		<intercept-url pattern="/**/**new**/**" access="hasRole('ADMIN')" /> 
 		<intercept-url pattern="/**/**edit**/**" access="hasRole('ADMIN')" />
@@ -24,7 +24,12 @@
 	
 	<beans:bean id="gwtFilter" class="com.alcuras.weblogin.aut.AuthenticationFilter">
 		<beans:property name="authenticationManager" ref="gwtAuthenticationManager" />
+		<beans:property name="deniedHandler" ref="myAccessDeniedHandler" />
 	</beans:bean>
+	
+	<beans:bean id="myAccessDeniedHandler" class="com.alcuras.weblogin.aut.AppAccessDeniedHandler">
+     	 <beans:property name="accessDeniedUrl" value="/public/403.htm" />
+    </beans:bean>
 	
 	<authentication-manager alias="gwtAuthenticationManager">
 		<authentication-provider

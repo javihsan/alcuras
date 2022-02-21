@@ -58,6 +58,10 @@
 		<property name="view" value="Inicio" />
 	</bean>
 	
+	<bean id="loginController" class="com.alcuras.web.controllers.LoginController">
+		<property name="view" value="Login" />
+	</bean>
+	
 	<bean id="mensajeController" class="com.alcuras.web.controllers.MensajeController">
 		<property name="viewMap">
 			<map>

@@ -14,6 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 import com.google.appengine.api.users.User;
+import com.google.firebase.auth.FirebaseToken;
 
 public class AccountsAuthenticationProvider implements AuthenticationProvider {
 	
@@ -24,15 +25,25 @@ public class AccountsAuthenticationProvider implements AuthenticationProvider {
 			throws AuthenticationException {
 
 		boolean isAuto = false;
-		User googleUser = (User) authentication.getPrincipal();
-		String userMail = googleUser.getEmail().toLowerCase();
-		// Nos aseguramos que el usuario esté registrado
-		AppUser user = userRegistry.findUser(userMail);
-		if (user != null && user.isEnabled()) {
-						
+		Object principal = authentication.getPrincipal();
+		AppUser user = null;
+		String userMail = null;
+		if (principal instanceof FirebaseToken) {
+			
+			userMail = ((FirebaseToken)principal).getEmail();
 			isAuto = true;
+			
+		} else if (principal instanceof User) {
+			
+			userMail = ((User)principal).getEmail().toLowerCase();
+			
+			// Nos aseguramos que el usuario esté registrado
+			user = userRegistry.findUser(userMail);
+			if (user != null && user.isEnabled()) {
+						
+				isAuto = true;
 
-		} else if (getUsersAuthenticatedAdmin().contains(userMail)){
+			} else if (getUsersAuthenticatedAdmin().contains(userMail)){
 			
 				// SOLO PARA CREAR USUARIOS ESPECIALES
 			
@@ -44,19 +55,25 @@ public class AccountsAuthenticationProvider implements AuthenticationProvider {
 					// Usuario no registado. Lo registramos si cumple con la seguridad
 					userRegistry.registerUser(user);
 				}	
-		}
+			}
+		}		
 
 		if (isAuto) {
 			// Traspasamos la información de user a userAuthentication, 
 			// que es  la verdadera Authentication
+			
 			Collection<GrantedAuthority> roles = new HashSet<GrantedAuthority>();
-			Set<AppRole> rolesUser = user.getAuthorities();
-			for (AppRole r : rolesUser) {
-				roles.add(r);
+			if (principal instanceof User) {
+				Set<AppRole> rolesUser = user.getAuthorities();
+				for (AppRole r : rolesUser) {
+					roles.add(r);
+				}
+			} else {
+				roles.add(AppRole.USER);
 			}
-
+			
 			UserAuthentication userAuthentication = new UserAuthentication(
-					authentication.getName(),  
+					userMail,  
 					roles,
 					authentication.getCredentials(),
 					authentication.getDetails(), // aqui va el path

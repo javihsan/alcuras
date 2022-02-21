@@ -84,7 +84,7 @@
 							<jvmFlags>
 								<jvmFlag>-Xdebug</jvmFlag>
 								<jvmFlag>
-									-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n
+									-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n
 								</jvmFlag>
 								<jvmFlag>
 									-Ddatastore.backing_store=${project.basedir}/local_db.bin
@@ -169,7 +169,11 @@
     		<artifactId>appengine-gcs-client</artifactId>
     		<version>0.8</version>
 		</dependency>
-
+		<dependency>
+		    <groupId>com.google.firebase</groupId>
+		    <artifactId>firebase-admin</artifactId>
+		    <version>8.1.0</version>
+		</dependency>
 		<!-- commons -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
