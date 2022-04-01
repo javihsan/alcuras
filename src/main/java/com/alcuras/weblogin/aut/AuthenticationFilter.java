@@ -81,6 +81,7 @@ public class AuthenticationFilter extends GenericFilterBean {
 							}
 							googleUser = FirebaseAuth.getInstance().verifyIdToken(tokenFront);
 						} catch (FirebaseAuthException e) {
+							LOG.severe("AuthenticationFilter: Token not valid o expired");
 							googleUser = null;
 						}
 					}
