@@ -1713,3 +1713,94 @@
 13:46:38,109 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
 13:46:38,111 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
 13:46:38,112 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=171 ms, enhance=38 ms, total=209 ms. Consult the log for full details
+09:50:48,686 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+09:50:48,772 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+09:50:49,175 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+09:50:49,179 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+09:50:49,182 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+09:50:49,184 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+09:50:49,184 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=373 ms, enhance=37 ms, total=410 ms. Consult the log for full details
+10:29:00,160 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:29:00,241 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:29:00,518 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:29:00,521 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:29:00,524 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:29:00,526 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:29:00,526 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=244 ms, enhance=39 ms, total=283 ms. Consult the log for full details
+10:38:12,397 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:38:12,472 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:38:12,713 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:38:12,717 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:38:12,720 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:38:12,722 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:38:12,722 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=213 ms, enhance=36 ms, total=249 ms. Consult the log for full details
+10:41:23,050 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:41:23,125 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:41:23,344 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:41:23,348 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:41:23,350 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:41:23,352 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:41:23,353 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=187 ms, enhance=39 ms, total=226 ms. Consult the log for full details
+10:42:35,495 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:42:35,563 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:42:35,802 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:42:35,806 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:42:35,808 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:42:35,811 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:42:35,811 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=209 ms, enhance=36 ms, total=245 ms. Consult the log for full details
+10:45:09,199 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:45:09,283 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:45:09,523 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:45:09,527 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:45:09,529 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:45:09,531 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:45:09,532 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=207 ms, enhance=39 ms, total=246 ms. Consult the log for full details
+10:47:38,128 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:47:38,194 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:47:38,416 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:47:38,419 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:47:38,422 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:47:38,424 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:47:38,424 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=193 ms, enhance=35 ms, total=228 ms. Consult the log for full details
+10:48:51,161 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:48:51,237 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:48:51,476 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:48:51,480 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:48:51,482 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:48:51,484 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:48:51,484 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=208 ms, enhance=37 ms, total=245 ms. Consult the log for full details
+10:51:02,375 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:51:02,449 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:51:02,700 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:51:02,704 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:51:02,707 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:51:02,708 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:51:02,709 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=221 ms, enhance=38 ms, total=259 ms. Consult the log for full details
+10:56:45,031 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:56:45,102 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:56:45,348 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:56:45,353 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:56:45,355 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:56:45,357 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:56:45,358 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=214 ms, enhance=39 ms, total=253 ms. Consult the log for full details
+10:59:03,380 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+10:59:03,454 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+10:59:03,705 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+10:59:03,709 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+10:59:03,711 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+10:59:03,713 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+10:59:03,714 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=219 ms, enhance=39 ms, total=258 ms. Consult the log for full details
+11:01:43,643 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+11:01:43,765 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:01:44,133 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+11:01:44,139 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+11:01:44,143 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+11:01:44,146 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+11:01:44,146 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=312 ms, enhance=67 ms, total=379 ms. Consult the log for full details
+11:05:01,065 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JPA"
+11:05:01,179 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:05:01,519 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Articulo.class" with enhanced definition
+11:05:01,526 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Evento.class" with enhanced definition
+11:05:01,530 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Mensaje.class" with enhanced definition
+11:05:01,533 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\work\repository\diloso\alcuras\target\alcurasweb\WEB-INF\classes\com\alcuras\web\persist\entities\Web.class" with enhanced definition
+11:05:01,533 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 4 classes. Timings : input=291 ms, enhance=60 ms, total=351 ms. Consult the log for full details
