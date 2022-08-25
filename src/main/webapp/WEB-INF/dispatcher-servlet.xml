@@ -151,7 +151,7 @@
 				</entry>
 			</map>
 		</property>
-		<property name="sender" value="no-reply@alcuras.com" />
+		<property name="sender" value="no-reply@alcurasweb.appspotmail.com" />
 		<property name="recipient" value="info@alcuras.com" />
 		<property name="subject" value="Alcuras Comunicaciones interesado: " />
 	</bean>
