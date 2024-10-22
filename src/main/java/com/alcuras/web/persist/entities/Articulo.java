@@ -1,36 +1,29 @@
 package com.alcuras.web.persist.entities;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
+import com.alcuras.datastore.data.StorableWithModificationTimestamp;
 import com.google.appengine.api.datastore.Text;
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 
+
+ 
 /**
  * The persistent class for the Articulo entity
  * 
  */
 @Entity
-@NamedQueries({
-	@NamedQuery(name="getArticulo", query = "SELECT t FROM Articulo t WHERE t.artIdForo = :artIdForo and t.artActivado =1 order by t.artId desc"),
-	@NamedQuery(name="getArticuloAdmin", query = "SELECT t FROM Articulo t WHERE t.artIdForo = :artIdForo order by t.artId desc"),
-})
-public class Articulo implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Cache
+public class Articulo extends StorableWithModificationTimestamp<Long> { 
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long artId;
 
+	@Index
 	private int artActivado;
 
 	private String artAsuntoEs;
@@ -45,9 +38,9 @@ public class Articulo implements Serializable {
 	
 	private Text artTextoDe;
 	
-    @Temporal( TemporalType.DATE)
 	private Date artFecha;
 
+	@Index
 	private Long artIdForo;
 
 	private String artIdUsu;
@@ -67,7 +60,17 @@ public class Articulo implements Serializable {
     public Articulo() {
     	
     }
+    
+    /** Para ser compatible con IStorable */
+	public Long getId() {
+		return artId;
+	}
 
+	public void setId(Long id) {
+		this.artId = id;
+	}
+	/**  */
+	
 	public Long getArtId() {
 		return artId;
 	}
@@ -75,7 +78,7 @@ public class Articulo implements Serializable {
 	public void setArtId(Long artId) {
 		this.artId = artId;
 	}
-
+	
 	public int getArtActivado() {
 		return artActivado;
 	}

@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alcuras.web.negocio.dao.WebDAO;
 import com.alcuras.web.negocio.dto.WebDTO;
+import com.alcuras.web.negocio.manager.IWebManager;
 import com.google.appengine.api.datastore.Text;
 
 @Controller
@@ -20,14 +20,14 @@ import com.google.appengine.api.datastore.Text;
 public class WebController {
 
 	@Autowired
-	protected WebDAO webManager;
-	 
+	protected IWebManager webManager;
+	     
 	private Map viewMap;
 	private String view;
 	private String path;
 	private Map paramMap;
 	private String param;
-	
+	 
 	@RequestMapping("")
 	private ModelAndView inicioInit(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {

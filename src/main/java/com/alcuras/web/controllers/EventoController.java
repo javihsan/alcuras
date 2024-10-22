@@ -15,8 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alcuras.web.negocio.dao.EventoDAO;
 import com.alcuras.web.negocio.dto.EventoDTO;
+import com.alcuras.web.negocio.manager.IEventoManager;
 import com.alcuras.web.negocio.utils.Utils;
 import com.google.appengine.api.datastore.Text;
 import com.google.appengine.tools.cloudstorage.GcsFilename;
@@ -28,10 +28,10 @@ import com.google.cloud.RetryHelper.RetryHelperException;
 @Controller
 @RequestMapping("/*eventos*")
 public class EventoController {
-
+   
 	@Autowired
-	protected EventoDAO eventoManager;
-
+	protected IEventoManager eventoManager;
+  
 	private Map viewMap;
 	private String view;
 	private String path;
@@ -328,6 +328,7 @@ public class EventoController {
 
 		EventoDTO evento = new EventoDTO();
 		evento.setEveId(eveId);
+		evento.setEveIdForo(getType());
 		evento.setEveIdUsu(eveIdUsu);
 		evento.setEveAsuntoEs(eveAsuntoEs);
 		evento.setEveAsuntoEn(eveAsuntoEn);

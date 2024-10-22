@@ -11,7 +11,7 @@ public class ReplaceInternalResourceViewResolver extends InternalResourceViewRes
 	protected String identSHOP;
 	protected String prefixSHOP;
 	protected String sufixSHOP;
-	
+	     
     @Override
     public View resolveViewName(String viewName, Locale locale)
             throws Exception {

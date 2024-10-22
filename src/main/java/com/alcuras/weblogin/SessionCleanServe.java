@@ -24,7 +24,7 @@ public class SessionCleanServe extends HttpServlet {
 			Query query = new Query("_ah_SESSION");
 			query.setKeysOnly();
 			PreparedQuery results = datastore.prepare(query);
-
+ 
 			int cleared = 0;
 
 			for (Entity session : results.asIterable(FetchOptions.Builder.withLimit(100))) {

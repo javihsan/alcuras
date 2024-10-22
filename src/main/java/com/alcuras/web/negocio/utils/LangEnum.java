@@ -5,3 +5,4 @@ public enum LangEnum {
 	ES, EN, DE
 
 }
+ 

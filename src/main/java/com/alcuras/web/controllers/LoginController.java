@@ -10,9 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value={"/*login*"})
 public class LoginController {
-	
+	 
 	private String view;
-	
+	     
 	@RequestMapping("")
 	private ModelAndView inicioInit(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {

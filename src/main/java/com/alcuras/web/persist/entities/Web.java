@@ -1,15 +1,11 @@
 package com.alcuras.web.persist.entities;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-
+import com.alcuras.datastore.data.StorableWithModificationTimestamp;
 import com.google.appengine.api.datastore.Text;
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 
 /**
@@ -17,19 +13,16 @@ import com.google.appengine.api.datastore.Text;
  * 
  */
 @Entity
-@NamedQueries({
-	@NamedQuery(name="getWeb", query = "SELECT t FROM Web t order by t.webId desc"),
-	@NamedQuery(name="getWebBBDDByWebParametro", query = "SELECT t FROM Web t WHERE t.webParametro=:webParametro"),
-	@NamedQuery(name="getWebByWebParametro", query = "SELECT t FROM Web t WHERE t.webParametro=:webParametro and t.webActivado =1")})
-public class Web implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Cache
+public class Web extends StorableWithModificationTimestamp<Long> { 
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long webId;
-
+	
+	@Index
 	private int webActivado;
-
+	
+	@Index
 	private String webParametro;
  
 	private String webValorFile;
@@ -45,13 +38,23 @@ public class Web implements Serializable {
     public Web() {
     }
 
-	public Long getWebId() {
-		return this.webId;
-	}
+    /** Para ser compatible con IStorable */
+   	public Long getId() {
+   		return webId;
+   	}
 
-	public void setWebId(Long webId) {
-		this.webId = webId;
-	}
+   	public void setId(Long id) {
+   		this.webId = id;
+   	}
+   	/**  */
+   	
+   	public Long getWebId() {
+   		return webId;
+   	}
+
+   	public void setWebId(Long webId) {
+   		this.webId = webId;
+   	}
 
 	public int getWebActivado() {
 		return this.webActivado;

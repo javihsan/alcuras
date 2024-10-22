@@ -10,17 +10,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value={"/*inicio*", ""})
 public class HomeController {
-	
+	  
 	private String view;
-	
+	   
 	@RequestMapping("")
 	private ModelAndView initDefault(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
 		arg1.sendRedirect("/inicio");
 		return null;
-
 	}
-	
+	 
 	@RequestMapping(value={"inicio", "inicioAdmin", "inicioManager", "inicioExternal"})
 	private ModelAndView inicioInit(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {

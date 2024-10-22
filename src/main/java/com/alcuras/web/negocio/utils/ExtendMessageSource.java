@@ -11,6 +11,6 @@ public class ExtendMessageSource extends ReloadableResourceBundleMessageSource {
 		 PropertiesHolder pr = super.getMergedProperties(new Locale(lanCode));
          return pr.getProperties();
 	 }
-	
+	 
 	
 }

@@ -13,7 +13,7 @@ public class EventoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long eveId;
-
+ 
 	private int eveActivado;
 
 	private String eveAsuntoEs;

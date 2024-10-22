@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Utils {
 	public static String textoInxistente = "No existen datos";
-	
+	 
 	  public static String formatoFecha =  "'DD/MM/YYYY'"; 
 	  public static String formatoFechaHora =  "'DD/MM/YYYY HH24:MI'"; 
 	  public static String formatoFechaHoraMi =  "'HH24:MI'"; 
@@ -17,7 +17,7 @@ public class Utils {
 	  public static String formatoFechaHHJava =  "HH"; 
 	  public static String formatoFechaMMJava =  "mm"; 
 	  public static String formatoFechaBBDD =  "dd'-'MMM'-'yyyy";
-
+ 
 	/** Da formato a una fecha para que sea aceptada por la base de datos. **/
 	public static String getCurrentDate(String formato) {
 		String resultado = "";

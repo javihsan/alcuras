@@ -11,7 +11,7 @@ public class ApplicationContextProvider implements ApplicationContextAware {
 	public static ApplicationContext getApplicationContext() {
 		return ctx;
 	}
-
+ 
 	public void setApplicationContext(ApplicationContext ctx)
 			throws BeansException {
 		this.ctx = ctx;

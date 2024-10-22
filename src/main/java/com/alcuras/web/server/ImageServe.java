@@ -26,7 +26,7 @@ public class ImageServe extends HttpServlet {
 			String objectId = req.getParameter("objectId");
 
 			if (req.getParameter("x") != null) {
-
+ 
 				BufferedOutputStream outputStream = new BufferedOutputStream(res.getOutputStream());
 				int xImage = Integer.parseInt(req.getParameter("x"));
 				int yImage = Integer.parseInt(req.getParameter("y"));

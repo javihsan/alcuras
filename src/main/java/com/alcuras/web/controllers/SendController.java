@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class SendController {
 
 	private static final Logger LOG = Logger.getLogger(SendController.class.getSimpleName());
-	
+	    
 	private Map viewMap;
 	private String view;
 	private String path;
@@ -30,7 +30,7 @@ public class SendController {
 	private String recipient;
 	private String recipientCC;
 	private String subject;
-	
+	 
 	@RequestMapping("")
 	private ModelAndView inicioInit(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {

@@ -14,24 +14,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alcuras.web.negocio.dao.ArticuloDAO;
 import com.alcuras.web.negocio.dto.ArticuloDTO;
+import com.alcuras.web.negocio.manager.IArticuloManager;
 import com.alcuras.web.negocio.utils.Utils;
 import com.google.appengine.api.datastore.Text;
 
 @Controller
 @RequestMapping("/*articulos*")
 public class ArticuloController {
-	
+	    
 	@Autowired
-	protected ArticuloDAO articuloManager;
+	protected IArticuloManager articuloManager;
 	
 	private Map viewMap;
 	private String view;
 	private String path;
 	private Map typeMap;
 	private long type;
-
+ 
 	@RequestMapping("")
 	private ModelAndView inicioInit(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {

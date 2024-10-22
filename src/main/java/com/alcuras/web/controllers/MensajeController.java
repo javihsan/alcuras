@@ -14,18 +14,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alcuras.web.negocio.dao.MensajeDAO;
 import com.alcuras.web.negocio.dto.MensajeDTO;
+import com.alcuras.web.negocio.manager.IMensajeManager;
+import com.alcuras.web.negocio.manager.MensajeManager;
 import com.alcuras.web.negocio.utils.Utils;
-import com.alcuras.web.persist.manager.MensajeManager;
 
 @Controller
 @RequestMapping("/*comentarios*")
 public class MensajeController {
-	
+	    
 	@Autowired
-	protected MensajeDAO mensajeManager;
-	
+	protected IMensajeManager mensajeManager;
+	   
 	private Map viewMap;
 	private String view;
 	private String path;

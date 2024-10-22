@@ -16,14 +16,13 @@ public class ShopController {
 	
 	private Map viewMap;
 	private String view;
-	
-	
+		   
 	@RequestMapping("")
 	private ModelAndView inicioInit(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
-	
+	 
 		String path = arg0.getRequestURI().toLowerCase();
 		
 		Set setKeys = getViewMap().keySet();

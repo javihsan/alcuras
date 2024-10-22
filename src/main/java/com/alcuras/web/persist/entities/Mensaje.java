@@ -1,16 +1,12 @@
 package com.alcuras.web.persist.entities;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import com.alcuras.datastore.data.StorableWithModificationTimestamp;
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 
 /**
@@ -18,24 +14,21 @@ import javax.persistence.TemporalType;
  * 
  */
 @Entity
-@NamedQueries({
-	@NamedQuery(name="getMensaje", query = "SELECT t FROM Mensaje t WHERE t.menIdForo = :menIdForo and t.menActivado =1 order by t.menFecha desc"),
-	@NamedQuery(name="getMensajeAdmin", query = "SELECT t FROM Mensaje t WHERE t.menIdForo = :menIdForo order by t.menFecha desc"),
-})
-public class Mensaje implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Cache
+public class Mensaje extends StorableWithModificationTimestamp<Long> { 
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long menId;
 
+	@Index
 	private int menActivado;
 
 	private String menAsunto;
 
-    @Temporal( TemporalType.TIMESTAMP)
+	@Index
 	private Date menFecha;
 
+	@Index
 	private Long menIdForo;
 
 	private int menIdPadre;
@@ -50,14 +43,24 @@ public class Mensaje implements Serializable {
     	
     }
 
-	public Long getMenId() {
-		return this.menId;
-	}
+    /** Para ser compatible con IStorable */
+   	public Long getId() {
+   		return menId;
+   	}
 
-	public void setMenId(Long menId) {
-		this.menId = menId;
-	}
+   	public void setId(Long id) {
+   		this.menId = id;
+   	}
+   	/**  */
+   	
+   	public Long getMenId() {
+   		return menId;
+   	}
 
+   	public void setMenId(Long menId) {
+   		this.menId = menId;
+   	}
+	
 	public int getMenActivado() {
 		return this.menActivado;
 	}

@@ -11,7 +11,7 @@ import com.google.appengine.api.datastore.Text;
 
 public class ArticuloDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+ 
 	private Long artId;
 
 	private int artActivado;

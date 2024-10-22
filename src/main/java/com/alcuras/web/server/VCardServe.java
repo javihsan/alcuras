@@ -13,7 +13,7 @@ public class VCardServe extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws IOException {
-
+ 
 		try {
 			
 			String agent = req.getHeader("user-agent");

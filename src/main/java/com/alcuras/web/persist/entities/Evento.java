@@ -1,18 +1,13 @@
 package com.alcuras.web.persist.entities;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
+import com.alcuras.datastore.data.StorableWithModificationTimestamp;
 import com.google.appengine.api.datastore.Text;
+import com.googlecode.objectify.annotation.Cache;
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 
 /**
@@ -20,17 +15,13 @@ import com.google.appengine.api.datastore.Text;
  * 
  */
 @Entity
-@NamedQueries({
-	@NamedQuery(name="getEvento", query = "SELECT t FROM Evento t WHERE t.eveIdForo = :eveIdForo and t.eveActivado =1 order by t.eveFechaDesde desc"),
-	@NamedQuery(name="getEventoAdmin", query = "SELECT t FROM Evento t WHERE t.eveIdForo = :eveIdForo order by t.eveFechaDesde desc"),
-})
-public class Evento implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Cache
+public class Evento extends StorableWithModificationTimestamp<Long> { 
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long eveId;
-
+	
+	@Index
 	private int eveActivado;
 
 	private String eveAsuntoEs;
@@ -45,12 +36,12 @@ public class Evento implements Serializable {
 	
 	private Text eveTextoDe;
 	
-    @Temporal( TemporalType.TIMESTAMP)
+	 @Index
     private Date eveFechaDesde;
 
-    @Temporal( TemporalType.TIMESTAMP)
-	private Date eveFechaHasta;
+    private Date eveFechaHasta;
 
+	@Index
 	private Long eveIdForo;
 
 	private String eveIdUsu;
@@ -71,13 +62,23 @@ public class Evento implements Serializable {
     	
     }
 
-	public Long getEveId() {
-		return eveId;
-	}
+    /** Para ser compatible con IStorable */
+   	public Long getId() {
+   		return eveId;
+   	}
 
-	public void setEveId(Long eveId) {
-		this.eveId = eveId;
-	}
+   	public void setId(Long id) {
+   		this.eveId = id;
+   	}
+   	/**  */
+   	
+   	public Long getEveId() {
+   		return eveId;
+   	}
+
+   	public void setEveId(Long eveId) {
+   		this.eveId = eveId;
+   	}
 
 	public int getEveActivado() {
 		return eveActivado;

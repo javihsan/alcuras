@@ -1,0 +1,9 @@
+package com.alcuras.web.persist.dao;
+
+import javax.persistence.EntityManagerFactory;
+
+public interface IEMF {
+
+	 EntityManagerFactory get();
+	
+}

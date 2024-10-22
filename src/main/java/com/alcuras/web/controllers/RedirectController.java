@@ -13,13 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/*-*")
 public class RedirectController {
-	
+	 
 	private Map viewMap;
-	
+	  
 	@RequestMapping("")
 	private ModelAndView inicioInit(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
-		
+		  
 		String path = arg0.getRequestURI().toLowerCase();
 		String view = null;
 		ModelAndView mav = new ModelAndView();

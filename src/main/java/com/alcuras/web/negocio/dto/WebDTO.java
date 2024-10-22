@@ -14,7 +14,7 @@ public class WebDTO implements Serializable {
 	private Long webId;
 
 	private int webActivado;
-
+ 
 	private String webParametro;
  
 	private String webValorFile;

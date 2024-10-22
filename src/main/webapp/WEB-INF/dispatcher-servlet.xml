@@ -10,7 +10,7 @@
 			http://www.springframework.org/schema/context/spring-context-3.0.xsd"
 		default-lazy-init="false">
 
-	<context:component-scan base-package="com.alcuras.web.controllers,com.alcuras.web.persist.manager"/>
+	<context:component-scan base-package="com.alcuras.web.controllers,com.alcuras.web.negocio.manager,com.alcuras.web.persist.dao,com.alcuras.web.persist.mapper "/>
 
 	<!-- responsible for converting from the HTTP request message to an object and converting from an object to the HTTP response body. -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"> 
@@ -379,10 +379,5 @@
 		</property>
 	</bean>
 	
-	<bean id="beanEMF" class="com.alcuras.web.persist.manager.EMF" />
-	<bean id="articuloManager" class="com.alcuras.web.persist.manager.ArticuloManager" />
-	<bean id="eventoManager" class="com.alcuras.web.persist.manager.EventoManager" />
-	<bean id="mensajeManager" class="com.alcuras.web.persist.manager.MensajeManager" />
-	<bean id="webManager" class="com.alcuras.web.persist.manager.WebManager" />
 		
 </beans>

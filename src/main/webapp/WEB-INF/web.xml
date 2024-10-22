@@ -44,6 +44,22 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+    <!-- REGISTRA TIPOS DE ENTIDADES EN OBJECTIFY CUANDO LEVANTA LA INSTANCIA -->
+    <listener>
+        <listener-class>com.alcuras.web.negocio.utils.ObjectifyLoader</listener-class>
+    </listener>
+
+
+    <!-- SINCRONIZA CACHES DE OBJECTIFY, NECESARIO O SE PUEDEN PRODUCIR INCONSISTENCIAS ENTRE PETICIONES -->
+    <filter>
+        <filter-name>ObjectifyFilter</filter-name>
+        <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ObjectifyFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 	<!-- Servlets -->
 	 <servlet>
 		<servlet-name>default</servlet-name>

@@ -12,7 +12,7 @@ public class MensajeDTO implements Serializable {
 	private Long menId;
 
 	private int menActivado;
-
+ 
 	private String menAsunto;
 
 	private Date menFecha;

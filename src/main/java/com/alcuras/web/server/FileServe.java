@@ -25,7 +25,7 @@ public class FileServe extends HttpServlet {
 			.initialRetryDelayMillis(10).retryMaxAttempts(10).totalRetryPeriodMillis(15000).build());
 
 	private static final int BUFFER_SIZE = 2 * 1024 * 1024;
-
+ 
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
 		try {
