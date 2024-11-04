@@ -1,6 +1,7 @@
 package com.alcuras.web.negocio.utils;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.apache.commons.beanutils.BeanUtilsBean;
 
 public class NullAwareBeanUtilsBean extends BeanUtilsBean{

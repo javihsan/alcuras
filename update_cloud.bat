@@ -5,6 +5,6 @@ gcloud config set project alcurasweb
 gcloud app deploy .\target\alcurasweb\WEB-INF\appengine-web.xml --version=r8-0-0 --no-stop-previous-version --no-promote
 gcloud app deploy .\target\alcurasweb\WEB-INF\cron.yaml
 
-new java11:
+new java21:
 gcloud config set project alcurasweb
 mvn package appengine:deploy -P prod

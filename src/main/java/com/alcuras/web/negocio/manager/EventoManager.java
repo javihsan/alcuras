@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.alcuras.web.negocio.dto.EventoDTO;
+import com.alcuras.web.negocio.utils.NullAwareBeanUtilsBean;
 import com.alcuras.web.persist.dao.EventoDAO;
 import com.alcuras.web.persist.entities.Evento;
 import com.alcuras.web.persist.mapper.EventoMapper;
@@ -18,9 +19,6 @@ import com.alcuras.web.persist.mapper.EventoMapper;
 @Scope(value = "singleton")
 public class EventoManager implements IEventoManager {
 
-//	@Autowired
-//	protected IEMF beanEMF;
-	
 	@Autowired
 	private EventoDAO eventoDAO;
 
@@ -33,34 +31,6 @@ public class EventoManager implements IEventoManager {
 	public EventoManager() {
 	
 	}
-//	 
-//	protected EntityManager getEntityManager() {
-//		return beanEMF.get().createEntityManager();
-//	}
-/*
-	public EventoDTO create(EventoDTO evento) throws Exception {
-		EntityManager em = getEntityManager();
-		Evento entityEvento = EventoMapper.getInstance().transformDTOToEntity(evento);
-		try {
-			em.getTransaction().begin();
-			em.persist(entityEvento);
-			em.getTransaction().commit();
-		} catch (Exception ex) {
-			try {
-				if (em.getTransaction().isActive()) {
-					em.getTransaction().rollback();
-				}
-			} catch (Exception e) {
-				ex.printStackTrace();
-				throw e;
-			}
-			throw ex;
-		} finally {
-			em.close();
-		}
-		return EventoMapper.getInstance().transformEntityToDTO(entityEvento);
-	}*/
-
 	
 	/**
 	 * Crea un evento
@@ -73,31 +43,7 @@ public class EventoManager implements IEventoManager {
 		evento = eventoDAO.create(evento);
 		return mapper.map(evento);
 	}
-	/*
-	public EventoDTO remove(long id) throws Exception {
-		EntityManager em = getEntityManager();
-		Evento oldEntityEvento = new Evento();
-		try {
-			em.getTransaction().begin();
-			Evento entityEvento = (Evento) em.find(Evento.class, id);
-			PropertyUtils.copyProperties(oldEntityEvento, entityEvento);
-			em.remove(em.merge(entityEvento));
-			em.getTransaction().commit();
-		} catch (Exception ex) {
-			try {
-				if (em.getTransaction().isActive()) {
-					em.getTransaction().rollback();
-				}
-			} catch (Exception e) {
-				ex.printStackTrace();
-				throw e;
-			}
-			throw ex;
-		} finally {
-			em.close();
-		}
-		return EventoMapper.getInstance().transformEntityToDTO(oldEntityEvento);
-	}*/
+	
 	
 	/**
 	 * Elimina un evento
@@ -112,33 +58,7 @@ public class EventoManager implements IEventoManager {
 		}
 		return mapper.map(evento);
 	}
-	/*
-	public EventoDTO update(EventoDTO evento) throws Exception {
-		EntityManager em = getEntityManager();
-		Evento entityEvento = EventoMapper.getInstance().transformDTOToEntity(evento);
-		Evento oldEntityEvento = null;
-		EventoDTO oldEvento = null;
-		try {
-			em.getTransaction().begin();
-			oldEntityEvento = (Evento) em.find(Evento.class, entityEvento.getArtId());
-			new NullAwareBeanUtilsBean().copyProperties(entityEvento, oldEntityEvento);
-			oldEvento = EventoMapper.getInstance().transformEntityToDTO(oldEntityEvento);
-			entityEvento = em.merge(entityEvento);
-			em.getTransaction().commit();
-		} catch (Exception ex) {
-			try {
-				if (em.getTransaction().isActive()) {
-					em.getTransaction().rollback();
-				}
-			} catch (Exception e) {
-				throw e;
-			}
-			throw ex;
-		} finally {
-			em.close();
-		}
-		return oldEvento;
-	}*/
+
 	
 	/**
 	 * Modifica un evento
@@ -148,24 +68,17 @@ public class EventoManager implements IEventoManager {
 	 */
 	public EventoDTO update(EventoDTO eventoDTO) {
 		Evento evento = mapper.map(eventoDTO);
+		Evento oldEvento = eventoDAO.get(eventoDTO.getEveId());
+		try {
+			new NullAwareBeanUtilsBean().copyProperties(evento, oldEvento);
+		} catch (Exception e) {
+		}
 		evento = eventoDAO.update(evento);
 		if (evento == null) {
 			return null;
 		}
 		return mapper.map(evento);
 	}
-	/*
-	public EventoDTO getById(long id) {
-		Evento entityEvento = null;
-		EntityManager em = getEntityManager();
-		try {
-			entityEvento = (Evento) em.find(Evento.class, id);
-		} finally {
-			em.close();
-		}
-		return EventoMapper.getInstance().transformEntityToDTO(entityEvento);
-	}
-	*/
 
 	/**
 	 * Obtiene un evento
@@ -180,28 +93,7 @@ public class EventoManager implements IEventoManager {
 		}
 		return mapper.map(evento);
 	}
-	
-	
-/*
-	public List<EventoDTO> getEvento(long eveIdForo) {
-		EntityManager em = getEntityManager();
-		List<EventoDTO> result = new ArrayList<EventoDTO>();
-		List<Evento> resultQuery = null;
-		EventoDTO evento = null;
-		try {
-			Query query = em.createNamedQuery("getEvento");
-			query.setParameter("eveIdForo", eveIdForo);
-			resultQuery = (List<Evento>) query.getResultList();
-			for (Evento entityEvento: resultQuery){
-				evento = EventoMapper.getInstance().transformEntityToDTO(entityEvento);
-				result.add(evento);
-			}
-		} finally {
-			em.close();
-		}
-		return result;
-	}
-*/
+
 	
 	/**
 	 * Obtiene todos los eventos activos de un foro
@@ -221,23 +113,7 @@ public class EventoManager implements IEventoManager {
 		}
 		return list;		
 	}
-	/*
-	public List<EventoDTO> getEventoAdmin(long eveIdForo) {
-		EntityManager em = getEntityManager();
-		List<EventoDTO> result = new ArrayList<EventoDTO>();
-		List<Evento> resultQuery = null;
-		try {
-			Query query = em.createNamedQuery("getEventoAdmin");
-			query.setParameter("eveIdForo", eveIdForo);
-			resultQuery = (List<Evento>) query.getResultList();
-			for (Evento entityEvento : resultQuery) {
-				result.add(EventoMapper.getInstance().transformEntityToDTO(entityEvento));
-			}
-		} finally {
-			em.close();
-		}
-		return result;
-	}*/
+	
 	/**
 	 * Obtiene todos los eventos de un foro
 	 * 

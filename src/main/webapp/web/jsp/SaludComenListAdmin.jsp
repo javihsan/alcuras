@@ -27,7 +27,7 @@ function SaludComenRemove() {
           	<div class="imgCaption"><img src="/web/img/comments.jpg" width="230" height="171" class="sectionMainPict" /><p><spring:message code="salud.comentarios.list.imgpie"/></p></div>
 	        <spring:message code="salud.comentarios.list.text"/>
           	
-     		<img src="/web/img/titMessages.png" alt="<spring:message code="salud.comentarios"/>" /><strong><spring:message code="salud.comentarios.list"/></strong>
+     		<!-- <img src="/web/img/titMessages.png" alt="<spring:message code="salud.comentarios"/>" /><strong><spring:message code="salud.comentarios.list"/></strong>-->
      		<form action="SaludComenListAdmin" method="post" name="SaludComenListAdmin" id="messageForm">
 			   	<div class="submitButton"><input type="button" id="eliminar" value="<spring:message code="form.delete"/>" onClick="SaludComenRemove()"></div>
 	      	

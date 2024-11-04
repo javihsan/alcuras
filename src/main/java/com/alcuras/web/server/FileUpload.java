@@ -6,16 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload2.core.DiskFileItemFactory;
+import org.apache.commons.fileupload2.core.FileItem;
+import org.apache.commons.fileupload2.jakarta.JakartaServletFileUpload;
 import org.apache.commons.io.IOUtils;
 import org.joda.time.DateTime;
 
@@ -28,20 +21,27 @@ import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 import com.google.appengine.tools.cloudstorage.RetryParams;
 import com.google.cloud.RetryHelper.RetryHelperException;
 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 public class FileUpload extends HttpServlet {
 
 	private static final String ENCODING_UTF8 = "UTF-8";
 
 	private final GcsService gcsService = GcsServiceFactory.createGcsService(new RetryParams.Builder()
 			.initialRetryDelayMillis(10).retryMaxAttempts(10).totalRetryPeriodMillis(15000).build());
-
+	
+	
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
  
 		try {
-			// Create a factory for disk-based file items
-			DiskFileItemFactory factory = new DiskFileItemFactory();
-			ServletFileUpload upload = new ServletFileUpload(factory);
+			var factory = DiskFileItemFactory.builder().get();
+			JakartaServletFileUpload upload = new JakartaServletFileUpload(factory);
 
 			String urlRedirect = req.getParameter("urlRedirect");
 

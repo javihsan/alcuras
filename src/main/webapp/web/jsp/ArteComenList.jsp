@@ -27,11 +27,10 @@ function arteComenNew() {
 
      		<!-- <img src="/web/img/titMessages.png" alt="<spring:message code="arte.comentarios"/>" /><strong><spring:message code="arte.comentarios.list"/></strong>-->
      		<form action="ArteComenList" method="post" name="ArteComenList" id="messageForm">
-			   <%  if (vMensaje.size()>6){ %> 
-			   	<div class="submitButton"><input type="button" id="nuevo" value="<spring:message code="arte.comentarios.new"/>" onClick="arteComenNew()"></div>
-	      	  <%  } %>
-	      	
-     		<ol style="list-style-type:decimal;float:left;">
+			   
+			 <div class="submitButton"><input type="button" id="nuevo" value="<spring:message code="arte.comentarios.new"/>" onClick="arteComenNew()"></div>
+	     	
+	     	  <ol style="list-style-type:decimal;float:left;">
             	<%
 					for (int i=0;i<vMensaje.size();i++){
 						mensajeBean = (MensajeDTO)vMensaje.get(i);
@@ -42,9 +41,9 @@ function arteComenNew() {
                     <%=mensajeBean.getMenAsuntoHtml()%>
                 </li>
 				<% } %>
-            </ol>
-			      	<div class="submitButton"><input type="button" id="nuevo" value="<spring:message code="arte.comentarios.new"/>" onClick="arteComenNew()"></div>
-				</form>				
+             </ol>
+			      
+		   </form>				
           	
 	    </div>
 

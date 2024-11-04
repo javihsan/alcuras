@@ -1,22 +1,33 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <!-- - Sample namespace-based configuration - -->
-
 <beans:beans xmlns="http://www.springframework.org/schema/security"
 	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-6.3.xsd">
 
 	<http use-expressions="true" entry-point-ref="gwtEntryPoint">
-		<intercept-url pattern="/**/**admin**/**" access="hasRole('ADMIN')" />
-		<intercept-url pattern="/**/**manager**/**" access="hasAnyRole('ADMIN','MANAGER')" />
-		<intercept-url pattern="/**/**external**/**" access="hasAnyRole('USER')" />
+		<intercept-url pattern="/**/**admin**/**" access="hasAuthority('ADMIN')" />
+		<intercept-url pattern="/**/**Admin**/**" access="hasAuthority('ADMIN')" />
+		<intercept-url pattern="/**/**manager**/**" access="hasAnyAuthority('ADMIN','MANAGER')" />
+		<intercept-url pattern="/**/**Manager**/**" access="hasAnyAuthority('ADMIN','MANAGER')" />
+		<intercept-url pattern="/**/**external**/**" access="hasAnyAuthority('USER')" />
 		<intercept-url pattern="/**/**comentarios-new**/**" access="permitAll" />
-		<intercept-url pattern="/**/**new**/**" access="hasRole('ADMIN')" /> 
-		<intercept-url pattern="/**/**edit**/**" access="hasRole('ADMIN')" />
-		<intercept-url pattern="/**/**remove**/**" access="hasRole('ADMIN')" />
-		<custom-filter position="PRE_AUTH_FILTER" ref="gwtFilter" />  
+		<intercept-url pattern="/**/**new**/**" access="hasAuthority('ADMIN')" /> 
+		<intercept-url pattern="/**/**edit**/**" access="hasAuthority('ADMIN')" />
+		<intercept-url pattern="/**/**remove**/**" access="hasAuthority('ADMIN')" />
+		<intercept-url pattern="/**" access="permitAll()" />
+		<custom-filter position="PRE_AUTH_FILTER" ref="gwtFilter" />
+		<csrf disabled="true"/> 
 	</http>
+	
+	<http-firewall ref="allowSemicolonHttpFirewall" />
+		
+	<beans:bean id="allowSemicolonHttpFirewall" class="org.springframework.security.web.firewall.StrictHttpFirewall"> 
+        <beans:property name="allowSemicolon" value="true"/> 
+	</beans:bean>
+
+	<beans:bean id="mvcHandlerMappingIntrospector" class="org.springframework.web.servlet.handler.HandlerMappingIntrospector">
+    </beans:bean>
 	
 	<beans:bean id="gwtEntryPoint" class="com.alcuras.weblogin.aut.AccountsAuthenticationEntryPoint">
 		<beans:property name="redirectUrl" value="/inicio" />
@@ -25,7 +36,10 @@
 	<beans:bean id="gwtFilter" class="com.alcuras.weblogin.aut.AuthenticationFilter">
 		<beans:property name="authenticationManager" ref="gwtAuthenticationManager" />
 		<beans:property name="deniedHandler" ref="myAccessDeniedHandler" />
+		<beans:property name="securityContextRepository" ref="gwtSecurityContextRepository" />
 	</beans:bean>
+	
+	<beans:bean id="gwtSecurityContextRepository" class="org.springframework.security.web.context.HttpSessionSecurityContextRepository" />
 	
 	<beans:bean id="myAccessDeniedHandler" class="com.alcuras.weblogin.aut.AppAccessDeniedHandler">
      	 <beans:property name="accessDeniedUrl" value="/public/403.htm" />

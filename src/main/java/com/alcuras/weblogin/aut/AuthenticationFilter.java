@@ -4,19 +4,14 @@ package com.alcuras.weblogin.aut;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
+import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.web.filter.GenericFilterBean;
 
 import com.google.appengine.api.users.UserServiceFactory;
@@ -24,18 +19,27 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 public class AuthenticationFilter extends GenericFilterBean {
 
 	private static final Logger LOG = Logger.getLogger(AuthenticationFilter.class.getSimpleName());
 	
 	protected AuthenticationManager authenticationManager;
+	
 	protected AppAccessDeniedHandler deniedHandler;
+	
+	protected SecurityContextRepository securityContextRepository;
 
 	public final static String MANAGER = "manager";
 	public final static String ADMIN = "admin";
 	public final static String EXTERNAL = "external";
-	private final static String CONTINUE = "continue";
-
+	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 
@@ -46,7 +50,7 @@ public class AuthenticationFilter extends GenericFilterBean {
 
 		String path = ((HttpServletRequest) request).getServletPath();
 
-		if (path.indexOf(CONTINUE) == -1 && (path.toLowerCase().indexOf(MANAGER.toLowerCase()) != -1
+		if ((path.toLowerCase().indexOf(MANAGER.toLowerCase()) != -1
 				|| path.toLowerCase().indexOf(ADMIN.toLowerCase()) != -1
 				|| path.toLowerCase().indexOf(EXTERNAL.toLowerCase()) != -1)) {
 			String serverName = ((HttpServletRequest) request).getServerName();
@@ -59,12 +63,14 @@ public class AuthenticationFilter extends GenericFilterBean {
 				pathKey += EXTERNAL;
 			}
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			
 			// Si tenemos autorización pero no para esta url, reseteamos el SecurityContextHolder
 			if (authentication != null
 					&& (authentication.getDetails() == null || !(authentication.getDetails() instanceof String)
 							|| ((String) authentication.getDetails()).indexOf(pathKey) == -1)) {
 				authentication = null;
-				SecurityContextHolder.getContext().setAuthentication(authentication);
+				// Setup the security context
+				setContextAuthentication(authentication, (HttpServletRequest)request, (HttpServletResponse)response);
 			}
 
 			if (authentication == null) {
@@ -98,7 +104,7 @@ public class AuthenticationFilter extends GenericFilterBean {
 					try {
 						authentication = authenticationManager.authenticate(token);
 						// Setup the security context
-						SecurityContextHolder.getContext().setAuthentication(authentication);
+						setContextAuthentication(authentication, (HttpServletRequest)request, (HttpServletResponse)response);
 					} catch (AuthenticationException e) {
 						LOG.severe("AuthenticationFilter: User not Authenticated");
 						deniedHandler.handle(((HttpServletRequest) request), ((HttpServletResponse) response),
@@ -110,21 +116,25 @@ public class AuthenticationFilter extends GenericFilterBean {
 		chain.doFilter(request, response);
 	}
 
-	public AuthenticationManager getAuthenticationManager() {
-		return authenticationManager;
+	// Setup the security context
+		private void setContextAuthentication(Authentication authentication, HttpServletRequest request, HttpServletResponse response) {
+			SecurityContext context = SecurityContextHolder.createEmptyContext();
+			context.setAuthentication(authentication);
+			securityContextRepository.saveContext(context, request, response);
+			SecurityContextHolder.setContext(context);
+			//SecurityContextHolder.getContext().setAuthentication(authentication);
+		}
+		
+		public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+			this.authenticationManager = authenticationManager;
+		}
+
+		public void setDeniedHandler(AppAccessDeniedHandler deniedHandler) {
+			this.deniedHandler = deniedHandler;
+		}
+
+		public void setSecurityContextRepository(SecurityContextRepository securityContextRepository) {
+			this.securityContextRepository = securityContextRepository;
+		}	
+		
 	}
-
-	public void setAuthenticationManager(AuthenticationManager authenticationManager) {
-		this.authenticationManager = authenticationManager;
-	}
-
-	public AppAccessDeniedHandler getDeniedHandler() {
-		return deniedHandler;
-	}
-
-	public void setDeniedHandler(AppAccessDeniedHandler deniedHandler) {
-		this.deniedHandler = deniedHandler;
-	}
-
-
-}

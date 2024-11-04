@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.alcuras.web.negocio.dto.WebDTO;
+import com.alcuras.web.negocio.utils.NullAwareBeanUtilsBean;
 import com.alcuras.web.persist.dao.WebDAO;
 import com.alcuras.web.persist.entities.Web;
 import com.alcuras.web.persist.mapper.WebMapper;
@@ -18,9 +19,6 @@ import com.alcuras.web.persist.mapper.WebMapper;
 @Component
 @Scope(value = "singleton")
 public class WebManager implements IWebManager {
-
-//	@Autowired
-//	protected IEMF beanEMF;
 	
 	@Autowired
 	private WebDAO webDAO;
@@ -30,37 +28,11 @@ public class WebManager implements IWebManager {
 	
 	public static final String PARAMETRO = "webParametro";
 	public static final String ACTIVADO = "webActivado";
+	public static final String ORDER_KY_DESC = "-__key__";
 	
 	public WebManager() {
 	
 	}
-//	 
-//	protected EntityManager getEntityManager() {
-//		return beanEMF.get().createEntityManager();
-//	}
-/*
-	public WebDTO create(WebDTO web) throws Exception {
-		EntityManager em = getEntityManager();
-		Web entityWeb = WebMapper.getInstance().transformDTOToEntity(web);
-		try {
-			em.getTransaction().begin();
-			em.persist(entityWeb);
-			em.getTransaction().commit();
-		} catch (Exception ex) {
-			try {
-				if (em.getTransaction().isActive()) {
-					em.getTransaction().rollback();
-				}
-			} catch (Exception e) {
-				ex.printStackTrace();
-				throw e;
-			}
-			throw ex;
-		} finally {
-			em.close();
-		}
-		return WebMapper.getInstance().transformEntityToDTO(entityWeb);
-	}*/
 
 	
 	/**
@@ -74,31 +46,6 @@ public class WebManager implements IWebManager {
 		web = webDAO.create(web);
 		return mapper.map(web);
 	}
-	/*
-	public WebDTO remove(long id) throws Exception {
-		EntityManager em = getEntityManager();
-		Web oldEntityWeb = new Web();
-		try {
-			em.getTransaction().begin();
-			Web entityWeb = (Web) em.find(Web.class, id);
-			PropertyUtils.copyProperties(oldEntityWeb, entityWeb);
-			em.remove(em.merge(entityWeb));
-			em.getTransaction().commit();
-		} catch (Exception ex) {
-			try {
-				if (em.getTransaction().isActive()) {
-					em.getTransaction().rollback();
-				}
-			} catch (Exception e) {
-				ex.printStackTrace();
-				throw e;
-			}
-			throw ex;
-		} finally {
-			em.close();
-		}
-		return WebMapper.getInstance().transformEntityToDTO(oldEntityWeb);
-	}*/
 	
 	/**
 	 * Elimina un web
@@ -113,33 +60,6 @@ public class WebManager implements IWebManager {
 		}
 		return mapper.map(web);
 	}
-	/*
-	public WebDTO update(WebDTO web) throws Exception {
-		EntityManager em = getEntityManager();
-		Web entityWeb = WebMapper.getInstance().transformDTOToEntity(web);
-		Web oldEntityWeb = null;
-		WebDTO oldWeb = null;
-		try {
-			em.getTransaction().begin();
-			oldEntityWeb = (Web) em.find(Web.class, entityWeb.getArtId());
-			new NullAwareBeanUtilsBean().copyProperties(entityWeb, oldEntityWeb);
-			oldWeb = WebMapper.getInstance().transformEntityToDTO(oldEntityWeb);
-			entityWeb = em.merge(entityWeb);
-			em.getTransaction().commit();
-		} catch (Exception ex) {
-			try {
-				if (em.getTransaction().isActive()) {
-					em.getTransaction().rollback();
-				}
-			} catch (Exception e) {
-				throw e;
-			}
-			throw ex;
-		} finally {
-			em.close();
-		}
-		return oldWeb;
-	}*/
 	
 	/**
 	 * Modifica un web
@@ -149,24 +69,17 @@ public class WebManager implements IWebManager {
 	 */
 	public WebDTO update(WebDTO webDTO) {
 		Web web = mapper.map(webDTO);
+		Web oldWeb = webDAO.get(webDTO.getWebId());
+		try {
+			new NullAwareBeanUtilsBean().copyProperties(web, oldWeb);
+		} catch (Exception e) {
+		}
 		web = webDAO.update(web);
 		if (web == null) {
 			return null;
 		}
 		return mapper.map(web);
 	}
-	/*
-	public WebDTO getById(long id) {
-		Web entityWeb = null;
-		EntityManager em = getEntityManager();
-		try {
-			entityWeb = (Web) em.find(Web.class, id);
-		} finally {
-			em.close();
-		}
-		return WebMapper.getInstance().transformEntityToDTO(entityWeb);
-	}
-	*/
 
 	/**
 	 * Obtiene un web
@@ -181,23 +94,6 @@ public class WebManager implements IWebManager {
 		}
 		return mapper.map(web);
 	}	
-
-	/*
-	public List<WebDTO> getWeb() {
-		EntityManager em = getEntityManager();
-		List<WebDTO> result = new ArrayList<WebDTO>();
-		List<Web> resultQuery = null;
-		try {
-			Query query = em.createNamedQuery("getWeb");
-			resultQuery = (List<Web>) query.getResultList();
-			for (Web entityWeb : resultQuery) {
-				result.add(WebTransformer.getInstance().transformEntityToDTO(entityWeb));
-			}
-		} finally {
-			em.close();
-		}
-		return result;
-	}*/
 	
 	/**
 	 * Obtiene todos los web
@@ -206,7 +102,7 @@ public class WebManager implements IWebManager {
 	 */
 	public List<WebDTO> getWeb() {
 		List<String> orders = new ArrayList<String>();
-		orders.add("-__key__");
+		orders.add(ORDER_KY_DESC);
 		List<Web> listWeb = webDAO.listOrder(orders);
 		List<WebDTO> list = new ArrayList<WebDTO>();
 		for (Web web : listWeb) {
@@ -214,24 +110,6 @@ public class WebManager implements IWebManager {
 		}
 		return list;		
 	}
-
-	/*
-	public WebDTO getWebByWebParametro(String webParametro) {
-		EntityManager em = getEntityManager();
-		Web entityWeb = null;
-		try {
-			Query query = em.createNamedQuery("getWebByWebParametro");
-			query.setParameter("webParametro", webParametro);
-			List<Web> list = query.getResultList();
-			if (list.size()==0) return null;
-			entityWeb = (Web) list.get(0);
-			
-		} finally {
-			em.close();
-		}
-		return WebMapper.getInstance().transformEntityToDTO(entityWeb);
-	} 
-	*/
 	
 	/**
 	 * Obtiene web parametro activo
@@ -247,23 +125,6 @@ public class WebManager implements IWebManager {
 		Web web = (Web) listWeb.get(0);
 		return mapper.map(web);
 	}
-	
-	/*
-	public WebDTO getWebBBDDByWebParametro(String webParametro) {
-		EntityManager em = getEntityManager();
-		Web entityWeb = null;
-		try {
-			Query query = em.createNamedQuery("getWebBBDDByWebParametro");
-			query.setParameter("webParametro", webParametro);
-			List<Web> list = query.getResultList();
-			if (list.size()==0) return null;
-			entityWeb = (Web) list.get(0);
-			
-		} finally {
-			em.close();
-		}
-		return WebMapper.getInstance().transformEntityToDTO(entityWeb);
-	}*/
 	
 	/**
 	 * Obtiene web parametro

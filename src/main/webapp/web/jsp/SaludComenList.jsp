@@ -27,10 +27,10 @@ function SaludComenNew() {
           	
      		<!-- <img src="/web/img/titMessages.png" alt="<spring:message code="salud.comentarios"/>" /><strong><spring:message code="salud.comentarios.list"/></strong> -->
      		<form action="SaludComenList" method="post" name="SaludComenList" id="messageForm">
-			  <%  if (vMensaje.size()>6){ %> 
-			   	<div class="submitButton"><input type="button" id="nuevo" value="<spring:message code="salud.comentarios.new"/>" onClick="SaludComenNew()"></div>
-	      	  <%  } %>
-     		<ol style="list-style-type:decimal;">
+			
+			 <div class="submitButton"><input type="button" id="nuevo" value="<spring:message code="salud.comentarios.new"/>" onClick="SaludComenNew()"></div>
+	     
+     		 <ol style="list-style-type:decimal;">
             	<%
 					for (int i=0;i<vMensaje.size();i++){
 						mensajeBean = (MensajeDTO)vMensaje.get(i);
@@ -41,9 +41,9 @@ function SaludComenNew() {
                     <%=mensajeBean.getMenAsuntoHtml()%>
                 </li>
 				<% } %>
-            </ol>
-			      	<div class="submitButton"><input type="button" id="nuevo" value="<spring:message code="salud.comentarios.new"/>" onClick="SaludComenNew()"></div>
-				</form>				
+             </ol>
+			      
+		    </form>				
           	
 	    </div>
 

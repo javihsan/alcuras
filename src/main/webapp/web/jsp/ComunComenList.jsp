@@ -27,11 +27,11 @@ function ComunComenNew() {
           	
      		<!-- <img src="/web/img/titMessages.png" alt="<spring:message code="comun.comentarios"/>" /><strong><spring:message code="comun.comentarios.list"/></strong>-->
      		<form action="ComunComenList" method="post" name="ComunComenList" id="messageForm">
-			   	<%  if (vMensaje.size()>6){ %> 
-			   	<div class="submitButton"><input type="button" id="nuevo" value="<spring:message code="comun.comentarios.new"/>" onClick="ComunComenNew()"></div>
-	      	  <%  } %>
+			   
+			 <div class="submitButton"><input type="button" id="nuevo" value="<spring:message code="comun.comentarios.new"/>" onClick="ComunComenNew()"></div>
+	   
 	      	
-     		<ol style="list-style-type:decimal;">
+     		 <ol style="list-style-type:decimal;">
             	<%
 					for (int i=0;i<vMensaje.size();i++){
 						mensajeBean = (MensajeDTO)vMensaje.get(i);
@@ -42,9 +42,9 @@ function ComunComenNew() {
                     <%=mensajeBean.getMenAsuntoHtml()%>
                 </li>
 				<% } %>
-            </ol>
-			      	<div class="submitButton"><input type="button" id="nuevo" value="<spring:message code="comun.comentarios.new"/>" onClick="ComunComenNew()"></div>
-				</form>				
+             </ol>
+			
+			</form>				
           	
 	    </div>
 

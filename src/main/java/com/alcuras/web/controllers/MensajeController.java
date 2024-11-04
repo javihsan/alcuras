@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alcuras.web.negocio.dto.MensajeDTO;
 import com.alcuras.web.negocio.manager.IMensajeManager;
-import com.alcuras.web.negocio.manager.MensajeManager;
 import com.alcuras.web.negocio.utils.Utils;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/*comentarios*")

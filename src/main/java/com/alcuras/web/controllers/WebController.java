@@ -3,9 +3,6 @@ package com.alcuras.web.controllers;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alcuras.web.negocio.dto.WebDTO;
 import com.alcuras.web.negocio.manager.IWebManager;
 import com.google.appengine.api.datastore.Text;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/*vcard*")
@@ -88,7 +88,10 @@ public class WebController {
 
 		String webValorFile = (String)arg0.getAttribute("webValorFile");
 		String webValorFileName = (String)arg0.getAttribute("webValorFileName");
+		String webValorFileBackup = null;
 		if (arg0.getAttribute("webValorFileDelete")!=null){
+			WebDTO webBackup = webManager.getById(webId);
+			webValorFileBackup = webBackup.getWebValorFile();
 			webValorFile = "";
 			webValorFileName = "";
 		}	
@@ -111,12 +114,10 @@ public class WebController {
         web.setWebValorTextDe(webValorTextDe);
         web.setWebActivado(artActivado);
         
-        web = webManager.update(web);
+        webManager.update(web);
         
         if (arg0.getAttribute("webValorFileDelete")!=null){
-			if (web.getWebValorFile()!=null){
-				new EventoController().delete(web.getWebValorFile());
-			}
+			new EventoController().delete(webValorFileBackup);
 		}
         
          arg1.sendRedirect("/"+getPath());

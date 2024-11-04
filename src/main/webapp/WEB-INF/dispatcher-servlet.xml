@@ -5,15 +5,15 @@
 		xmlns:context="http://www.springframework.org/schema/context"
 		xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
-			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 			http://www.springframework.org/schema/context
-			http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+			http://www.springframework.org/schema/context/spring-context-4.3.xsd"
 		default-lazy-init="false">
 
 	<context:component-scan base-package="com.alcuras.web.controllers,com.alcuras.web.negocio.manager,com.alcuras.web.persist.dao,com.alcuras.web.persist.mapper "/>
 
 	<!-- responsible for converting from the HTTP request message to an object and converting from an object to the HTTP response body. -->
-	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"> 
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
 		<property name="interceptors">
         	<ref bean="localeChangeInterceptor" />
     	</property> 
@@ -364,7 +364,19 @@
 	</bean> 
 	
 	<!-- For ModelAndView -->
+	<bean id="contentNegotiationManager"  class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="mediaTypes">
+            <map>
+               <entry key="html" value="text/html"/>
+                <entry key="json" value="application/json"/>
+                <entry key="html" value="text/html"/>
+           </map>
+        </property>
+    </bean>
+	
+	<!-- For ModelAndView -->
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	    <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
 		<property name="viewResolvers">
 		    <list>
 		    	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>

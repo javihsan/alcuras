@@ -26,7 +26,7 @@ function arteComenDisable() {
           	<div class="imgCaption"><img src="/web/img/comments.jpg" width="230" height="171" class="sectionMainPict" /><p><spring:message code="arte.comentarios.list.imgpie"/></p></div>
 	        <spring:message code="arte.comentarios.list.text"/>
           	
-     		<img src="/web/img/titMessages.png" alt="<spring:message code="arte.comentarios"/>" /><strong><spring:message code="arte.comentarios.list"/></strong>
+     		<!-- <img src="/web/img/titMessages.png" alt="<spring:message code="arte.comentarios"/>" /><strong><spring:message code="arte.comentarios.list"/></strong>-->
      		<form action="ArteComenListManager" method="post" name="ArteComenListManager" id="messageForm">
 			   	<div class="submitButton"><input type="button" id="aceptar" value="<spring:message code="form.enable_disable"/>" onClick="arteComenDisable()"></div>
 	      	
@@ -45,8 +45,7 @@ function arteComenDisable() {
          
 				<% } %>
    			</ol>
-			     <div class="submitButton"><input type="button" id="aceptar" value="<spring:message code="form.enable_disable"/>" onClick="arteComenDisable()"></div>
-			</form>				
+		</form>				
           	
 	    </div>
 

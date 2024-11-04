@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.Vector;
-import java.util.*;
 
 public class Utils {
 	public static String textoInxistente = "No existen datos";

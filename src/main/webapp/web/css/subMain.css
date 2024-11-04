@@ -259,7 +259,8 @@
 	}
 	#messageForm div.submitButton{
 		text-align:left;
-		padding-top:25px;	
+		padding-top:25px;
+		width: 200px;
 	}
 		#messageForm div.submitButton input{
 			border:none;
