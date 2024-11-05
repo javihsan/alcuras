@@ -8,3 +8,5 @@ gcloud app deploy .\target\alcurasweb\WEB-INF\cron.yaml
 new java21:
 gcloud config set project alcurasweb
 mvn package appengine:deploy -P prod
+
+gcloud beta app migrate-config datastore-indexes-xml-to-yaml src\main\webapp\WEB-INF\datastore-indexes.xml
