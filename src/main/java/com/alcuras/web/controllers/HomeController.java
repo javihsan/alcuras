@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
-//@RequestMapping(value={"/*inicio*", "/", ""})
 public class HomeController {
 	  
 	private String view;
