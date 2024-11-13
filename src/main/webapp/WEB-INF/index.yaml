@@ -1,10 +1,6 @@
 indexes:
 - kind: Mensaje
   properties:
-  - direction: desc
-    name: __key__
-- kind: Mensaje
-  properties:
   - direction: asc
     name: menIdForo
   - direction: desc
@@ -19,26 +15,10 @@ indexes:
     name: menFecha
 - kind: Articulo
   properties:
-  - direction: desc
-    name: __key__
-- kind: Articulo
-  properties:
-  - direction: asc
-    name: artIdForo
-  - direction: desc
-    name: __key__
-- kind: Articulo
-  properties:
   - direction: asc
     name: artActivado
   - direction: asc
     name: artIdForo
-  - direction: desc
-    name: __key__
-- kind: Evento
-  properties:
-  - direction: desc
-    name: __key__
 - kind: Evento
   properties:
   - direction: asc
@@ -55,19 +35,7 @@ indexes:
     name: eveFechaDesde
 - kind: Web
   properties:
-  - direction: desc
-    name: __key__
-- kind: Web
-  properties:
-  - direction: asc
-    name: webParametro
-  - direction: desc
-    name: __key__
-- kind: Web
-  properties:
   - direction: asc
     name: webActivado
   - direction: asc
     name: webParametro
-  - direction: desc
-    name: __key__
